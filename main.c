@@ -7,7 +7,7 @@ int main(int argc, char* argv[])
 
 	srand(time(NULL));
 
-	printf("Press enter to generate scrambles\n");
+	printf("Press enter to generate scrambles\n\n");
 
 	while (1)
 	{
