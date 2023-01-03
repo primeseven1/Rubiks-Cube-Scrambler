@@ -15,6 +15,7 @@ int main(int argc, char* argv[])
 		char modifiers[] = { '\'', '2', 0 };
 
 		char* scramble = (char*)malloc(scrambleLength * sizeof(char));
+		memset(scramble, 0, scrambleLength * sizeof(char));
 
 		if (!scramble)
 		{
