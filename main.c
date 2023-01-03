@@ -41,7 +41,7 @@ int main(int argc, char* argv[])
 		scramble = NULL;
 
 		char enter = 0;
-		while (enter != '\r' && enter != '\n') { enter = getchar(); }
+		while (enter != '\r' && enter != '\n') enter = getchar();
 	}
 
 	return 0;
