@@ -2,18 +2,17 @@
 
 int main(int argc, char* argv[])
 {
+	const char moves[] = { 'U', 'D', 'R', 'L', 'F', 'B' };
+	const char modifiers[] = { '\'', '2', 0 };
+
 	srand(time(NULL));
 
-	printf("Press enter to generate another scramble\n");
+	printf("Press enter to generate scrambles\n");
 
 	while (1)
 	{
-		// Generates a random number between 22 and 28
-		int scrambleLength = rand() % (29 - 22) + 22;
-
-		char moves[] = { 'U', 'D', 'R', 'L', 'F', 'B' };
-		char modifiers[] = { '\'', '2', 0 };
-
+		// Generates random number between 25 and 28, and then dynamically allocates memory based on that size
+		int scrambleLength = rand() % (29 - 25) + 25;
 		char* scramble = (char*)malloc(scrambleLength * sizeof(char));
 
 		if (!scramble)
@@ -40,6 +39,7 @@ int main(int argc, char* argv[])
 		free(scramble);
 		scramble = NULL;
 
+		// Press enter to generate another scramble
 		char enter = 0;
 		while (enter != '\r' && enter != '\n') enter = getchar();
 	}
