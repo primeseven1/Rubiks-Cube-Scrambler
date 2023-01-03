@@ -5,4 +5,4 @@
 #include <stdlib.h>
 #include <conio.h>
 
-int valid(char* scramble, int i, char move);
+int valid(const char* scramble, const int i, const char move);
