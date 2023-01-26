@@ -1,10 +1,12 @@
+#include <time.h>
+#include <stdlib.h>
 #include "scrambleGenerator.h"
+
+static const char moves[] = { 'U', 'D', 'R', 'L', 'F', 'B' };
+static const char modifiers[] = { '\'', '2', 0 };
 
 char** genScramble(const unsigned int scrambleLength)
 {
-	const char moves[] = { 'U', 'D', 'R', 'L', 'F', 'B' };
-	const char modifiers[] = { '\'', '2', 0 };
-
 	char** scramble = (char**)malloc(scrambleLength * sizeof(char*));
 
 	if (!scramble)
@@ -19,9 +21,9 @@ char** genScramble(const unsigned int scrambleLength)
 		// If allocating fails at any point, it frees the scramble
 		if (!scramble[i])
 		{
-			for (unsigned int j = 0; j < i; i++)
+			for (unsigned int j = 0; j < i; j++)
 			{
-				free(scramble[i]);
+				free(scramble[j]);
 			}
 
 			free(scramble);
@@ -41,7 +43,7 @@ char** genScramble(const unsigned int scrambleLength)
 		}
 	}
 
-	// Memory is freed manually by using the freeScramble() function
+	// Memory is freed by using the freeScramble() function
 	return scramble;
 }
 
