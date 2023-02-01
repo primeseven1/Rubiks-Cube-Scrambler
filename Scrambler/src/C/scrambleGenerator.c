@@ -5,6 +5,22 @@
 static const char moves[] = { 'U', 'D', 'R', 'L', 'F', 'B' };
 static const char modifiers[] = { '\'', '2', 0 };
 
+static int valid(const char** scramble, const unsigned int i, const char move)
+{
+	// Checks if the current move is the same as the previous one
+	if (i && scramble[i - 1][0] == move) return 0;
+
+	// Removes things like "D U2 D"
+	if (i > 1 && move == scramble[i - 2][0])
+	{
+		if ((move == 'U' && scramble[i - 1][0] == 'D') || (move == 'D' && scramble[i - 1][0] == 'U') ||
+			(move == 'R' && scramble[i - 1][0] == 'L') || (move == 'L' && scramble[i - 1][0] == 'R') ||
+			(move == 'F' && scramble[i - 1][0] == 'B') || (move == 'B' && scramble[i - 1][0] == 'F')) return 0;
+	}
+
+	return 1;
+}
+
 char** genScramble(const unsigned int scrambleLength)
 {
 	char** scramble = (char**)malloc(scrambleLength * sizeof(char*));
@@ -45,22 +61,6 @@ char** genScramble(const unsigned int scrambleLength)
 
 	// Memory is freed by using the freeScramble() function
 	return scramble;
-}
-
-int valid(const char** scramble, const unsigned int i, const char move)
-{
-	// Checks if the current move is the same as the previous one
-	if (i && scramble[i - 1][0] == move) return 0;
-
-	// Removes things like "D U2 D"
-	if (i > 1 && move == scramble[i - 2][0])
-	{
-		if ((move == 'U' && scramble[i - 1][0] == 'D') || (move == 'D' && scramble[i - 1][0] == 'U') ||
-			(move == 'R' && scramble[i - 1][0] == 'L') || (move == 'L' && scramble[i - 1][0] == 'R') ||
-			(move == 'F' && scramble[i - 1][0] == 'B') || (move == 'B' && scramble[i - 1][0] == 'F')) return 0;
-	}
-
-	return 1;
 }
 
 void freeScramble(char** scramble, const unsigned int scrambleLength)

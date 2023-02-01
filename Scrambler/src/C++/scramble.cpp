@@ -1,6 +1,5 @@
 #include "../stdafx.h"
 #include "scramble.h"
-#include "scrambleImage.h"
 #include "window.h"
 
 extern "C" {
@@ -20,7 +19,7 @@ static sf::Font loadFont(const char* filePath)
 	return font;
 }
 
-static const sf::Font font = loadFont("C:/Windows/Fonts/arial.ttf");
+static const sf::Font s_font = loadFont("C:/Windows/Fonts/arial.ttf");
 
 /*****************************************************************************************************************************************
 ******************************************************************************************************************************************
@@ -35,7 +34,7 @@ Scramble& Scramble::getInstance()
 Scramble::Scramble()
 	: _m_scramble("Press enter to generate scrambles")
 {
-	this->setFont(font);
+	this->setFont(s_font);
 	this->setCharacterSize(18);
 	this->setString(_m_scramble);
 
@@ -47,7 +46,7 @@ Scramble::Scramble()
 void Scramble::generateScramble()
 {
 	unsigned int scrambleLength = rand() % (29 - 24) + 24;
-	char** tempScramble = genScramble(scrambleLength);
+	char** p_TempScramble = genScramble(scrambleLength);
 
 	_m_scramble.clear();
 
@@ -56,16 +55,14 @@ void Scramble::generateScramble()
 		// Size of the elements in the 2d array is 2
 		for (unsigned int j = 0; j < 2 / sizeof(char); j++)
 		{
-			tempScramble[i][j] ? _m_scramble += tempScramble[i][j] : _m_scramble += "";
+			p_TempScramble[i][j] ? _m_scramble += p_TempScramble[i][j] : _m_scramble += "";
 		}
 
 		_m_scramble += " ";
 	}
 
-	std::cout << sizeof(*this);
-
-	freeScramble(tempScramble, scrambleLength);
-	tempScramble = nullptr;
+	freeScramble(p_TempScramble, scrambleLength);
+	p_TempScramble = nullptr;
 
 	this->setString(_m_scramble);
 	_m_bounds = this->getLocalBounds();

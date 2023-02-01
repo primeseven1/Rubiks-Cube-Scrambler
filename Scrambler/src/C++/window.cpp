@@ -9,11 +9,11 @@ extern "C" {
 Window::Window(const unsigned int screenWidth, const unsigned int screenHeight, const char* title, sf::Uint32 style = sf::Style::Default)
 {
 	this->create(sf::VideoMode(screenWidth, screenHeight), title, style);
-	this->setFramerateLimit(30);
-	this->eventHandler();
+	this->setFramerateLimit(30); // This reduces CPU usage by a lot
+	this->_eventHandler();
 }
 
-void Window::eventHandler()
+void Window::_eventHandler()
 {
 	while (this->isOpen())
 	{
@@ -28,7 +28,7 @@ void Window::eventHandler()
 				break;
 
 			case sf::Event::KeyPressed:
-				this->keyboardHandler(windowEvent.key.code);
+				this->_keyboardEventHandler(windowEvent.key.code);
 				break;
 			}
 		}
@@ -39,7 +39,7 @@ void Window::eventHandler()
 	}
 }
 
-void Window::keyboardHandler(const sf::Keyboard::Key& key)
+void Window::_keyboardEventHandler(const sf::Keyboard::Key& key)
 {
 	switch (key)
 	{

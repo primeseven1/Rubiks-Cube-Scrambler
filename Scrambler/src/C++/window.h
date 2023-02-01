@@ -9,6 +9,6 @@ public:
 	Window(const unsigned int screenWidth, const unsigned int screenHeight, const char* title, sf::Uint32 style);
 
 private:
-	void eventHandler();
-	void keyboardHandler(const sf::Keyboard::Key& key);
+	void _eventHandler();
+	void _keyboardEventHandler(const sf::Keyboard::Key& key);
 };
