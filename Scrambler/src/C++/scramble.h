@@ -4,10 +4,12 @@ class Scramble : public sf::Text
 {
 public:
 	static Scramble& getInstance();
+	void setPuzzle(const unsigned int puzzle);
 	void generateScramble();
 
 private:
 	Scramble();
+	int generateScrambleLength() const;
 
 	Scramble(const Scramble&) = delete;
 	Scramble(Scramble&&) = delete;
@@ -16,4 +18,5 @@ private:
 
 	std::string _m_scramble;
 	sf::FloatRect _m_bounds;
+	unsigned int _m_puzzle;
 };

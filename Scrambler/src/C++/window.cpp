@@ -46,5 +46,13 @@ void Window::_keyboardEventHandler(const sf::Keyboard::Key& key)
 	case sf::Keyboard::Key::Enter:
 		Scramble::getInstance().generateScramble();
 		break;
+
+	case sf::Keyboard::Key::Num2:
+		Scramble::getInstance().setPuzzle(2);
+		break;
+
+	case sf::Keyboard::Key::Num3:
+		Scramble::getInstance().setPuzzle(3);
+		break;
 	}
 }

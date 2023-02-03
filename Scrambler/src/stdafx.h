@@ -4,7 +4,6 @@
 #pragma region STL
 
 #include <iostream>
-#include <algorithm>
 #include <string>
 
 #pragma endregion
