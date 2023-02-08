@@ -10,6 +10,7 @@ static int valid(const char** scramble, const int i, const char move)
 {
 	if (i && scramble[i - 1][0] == move) return 0;
 
+	// Checking if the move is the same as the previous, and if it is, it checks to see if the last move is opposite of the current move
 	if (i > 1 && move == scramble[i - 2][0])
 	{
 		if ((move == 'U' && scramble[i - 1][0] == 'D') || (move == 'D' && scramble[i - 1][0] == 'U') ||
@@ -26,7 +27,8 @@ void genThreeScramble(char** scramble, const unsigned int scrambleLength)
 
 	for (unsigned int i = 0; i < scrambleLength; i++)
 	{
-		scramble[i][0] = moves[twoByTwo ? rand() % 3 : rand() % 6];
+		// If it's a 2x2 scramble, it only needs to generate for the first 3 moves of the moves array
+		scramble[i][0] = moves[twoByTwo ? rand() % ((sizeof(moves) / 2) / sizeof(char)) : rand() % (sizeof(moves) / sizeof(char))];
 		scramble[i][1] = modifiers[rand() % (sizeof(modifiers) / sizeof(char))];
 
 		if (!valid(scramble, i, scramble[i][0])) i--;

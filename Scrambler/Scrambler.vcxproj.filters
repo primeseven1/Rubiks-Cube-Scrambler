@@ -69,4 +69,8 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
+  <ItemGroup>
+    <Font Include="Fonts\arial.ttf" />
+    <Font Include="Fonts\arialbd.ttf" />
+  </ItemGroup>
 </Project>

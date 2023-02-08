@@ -12,14 +12,13 @@ void nxnFreeScramble(char** scramble)
 		free(scramble[i]);
 		i++;
 	}
+	/* Since the for loop can't free the last element since it stops at a NULL character, that last part of the array has to get freed to avoid memory leaks
+	after that, it frees the scramble
+	*/
 	free(scramble[i]);
 	free(scramble);
 }
 
-/*
-3x3/2x2: 1 modifer
-4x4/5x5: 2 modifiers
-*/
 char** genScramble(const Puzzle puzzle)
 {
 	char** scramble = NULL;
