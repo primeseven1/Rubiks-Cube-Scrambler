@@ -67,8 +67,8 @@ void Window::_keyboardHandler(sf::Keyboard::Key& key)
 		ScrambleText::getInstance().setPuzzle(PYRAMINX);
 		break;
 
-	case sf::Keyboard::Escape:
-		this->close();
+	case sf::Keyboard::M:
+		ScrambleText::getInstance().setPuzzle(MEGAMINX);
 		break;
 	}
 }

@@ -1,12 +1,5 @@
 #pragma once
 
-#define SKEWB_MODIFIERS 1
-#define PYRAMINX_MODIFIERS SKEWB_MODIFIERS
-#define TWO_BY_TWO_MODIFIERS 1
-#define THREE_BY_THREE_MODIFIERS TWO_BY_TWO_MODIFIERS
-#define FOUR_BY_FOUR_MODIFIERS 2
-#define FIVE_BY_FIVE_MODIFIERS FOUR_BY_FOUR_MODIFIERS
-
 typedef enum Puzzles
 {
 	SKEWB,
@@ -14,8 +7,20 @@ typedef enum Puzzles
 	TWO_BY_TWO,
 	THREE_BY_THREE,
 	FOUR_BY_FOUR,
-	FIVE_BY_FIVE
+	FIVE_BY_FIVE,
+	MEGAMINX
 } Puzzle;
+
+enum PuzzleModifers
+{
+	SKEWB_MODIFIERS = 1,
+	PYRAMINX_MODIFIERS = 1,
+	TWO_BY_TWO_MODIFIERS = 1,
+	THREE_BY_THREE_MODIFIERS = 1,
+	FOUR_BY_FOUR_MODIFIERS = 2,
+	FIVE_BY_FIVE_MODIFIERS = 2,
+	MEGAMINX_MODIFIERS = 2
+};
 
 void nxnFreeScramble(char** scramble);
 char** genScramble(const Puzzle puzzle);

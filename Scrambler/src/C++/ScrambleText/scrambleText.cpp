@@ -17,6 +17,7 @@ static sf::Font loadFont(const char* filePath)
 
 ScrambleText& ScrambleText::getInstance()
 {
+	// This class is a singleton, so I have to access it statically
 	static ScrambleText instance;
 	return instance;
 }
@@ -48,6 +49,7 @@ ScrambleText::ScrambleText()
 
 void ScrambleText::_setScramble(char** scramble)
 {
+	// The +1 includes the move that's not a modifer, since that needs to be displayed too
 	unsigned int modifiers = _m_puzzle < FOUR_BY_FOUR ? 1 + 1 : 2 + 1;
 	_m_scramble.clear();
 	unsigned int i = 0;

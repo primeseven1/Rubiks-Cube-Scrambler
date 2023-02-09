@@ -11,7 +11,6 @@
 
 #pragma region STL
 
-#include <iostream>
 #include <string>
 #include <cstdlib>
 

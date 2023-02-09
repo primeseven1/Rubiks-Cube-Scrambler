@@ -7,6 +7,8 @@ void loadFileError(LPCSTR filePath)
 
 	char* fullError = malloc(strlen(filePath) + strlen(error1) + 1);
 
+	if (!fullError) exit(-2);
+
 	strcpy_s(fullError, strlen(error1) + 1, error1);
 	strcat_s(fullError, strlen(fullError) + strlen(filePath) + 1, filePath);
 

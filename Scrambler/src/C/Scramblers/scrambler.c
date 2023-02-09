@@ -3,6 +3,7 @@
 #include "./NxN/fiveScramble.h"
 #include "./Side_Events/skewbScramble.h"
 #include "./Side_Events/pyraminxScramble.h"
+#include "./Side_Events/megaminxScramble.h"
 #include "./Allocator/allocator.h"
 #include "scrambler.h"
 
@@ -60,9 +61,15 @@ char** genScramble(const Puzzle puzzle)
 		break;
 
 	case PYRAMINX:
-		scrambleLength = rand() % (13 - 10) + 10;
+		scrambleLength = rand() % (15 - 10) + 10;
 		scramble = nxnAllocator(PYRAMINX_MODIFIERS, scrambleLength);
 		genPyraminxScramble(scramble, scrambleLength);
+		break;
+
+	case MEGAMINX:
+		scrambleLength = 77;
+		scramble = nxnAllocator(MEGAMINX_MODIFIERS, scrambleLength);
+		genMegaminxScramble(scramble, scrambleLength);
 		break;
 	}
 
