@@ -184,10 +184,13 @@
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../../Precompiled_Headers/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
     <ClCompile Include="src\C\Error\errorWindow.c" />
-    <ClCompile Include="src\C\Scramblers\allocator.c" />
-    <ClCompile Include="src\C\Scramblers\fiveScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Allocator\allocator.c" />
+    <ClCompile Include="src\C\Scramblers\NxN\fiveScramble.c" />
     <ClCompile Include="src\C\Scramblers\scrambler.c" />
-    <ClCompile Include="src\C\Scramblers\threeScramble.c" />
+    <ClCompile Include="src\C\Scramblers\NxN\threeScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Side_Events\pyraminxScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Side_Events\skewbScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Valid\valid.c" />
     <ClCompile Include="src\Entry_Point\main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">../Precompiled_Headers/stdafx.h</PrecompiledHeaderFile>
@@ -209,10 +212,13 @@
     <ClInclude Include="src\C++\ScrambleText\scrambleText.h" />
     <ClInclude Include="src\C++\Window\window.h" />
     <ClInclude Include="src\C\Error\errorWindow.h" />
-    <ClInclude Include="src\C\Scramblers\allocator.h" />
-    <ClInclude Include="src\C\Scramblers\fiveScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Allocator\allocator.h" />
+    <ClInclude Include="src\C\Scramblers\NxN\fiveScramble.h" />
     <ClInclude Include="src\C\Scramblers\scrambler.h" />
-    <ClInclude Include="src\C\Scramblers\threeScramble.h" />
+    <ClInclude Include="src\C\Scramblers\NxN\threeScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Side_Events\pyraminxScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Side_Events\skewbScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Valid\valid.h" />
     <ClInclude Include="src\Precompiled_Headers\stdafx.h" />
   </ItemGroup>
   <ItemGroup>

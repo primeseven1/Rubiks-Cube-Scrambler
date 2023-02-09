@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include "../scrambler.h"
 #include "fiveScramble.h"
 #include "../Valid/valid.h"
 

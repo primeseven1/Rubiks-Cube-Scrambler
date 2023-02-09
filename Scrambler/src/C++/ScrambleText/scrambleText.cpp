@@ -53,13 +53,11 @@ void ScrambleText::_setScramble(char** scramble)
 	unsigned int i = 0;
 	while (scramble[i][0] != '\0')
 	{
-		for (unsigned int j = 0; j < modifiers; j++)
-		{
-			// This is more for just checking to see if the modifier is a space, if it is, it does nothing pretty much
-			scramble[i][j] != ' ' ? _m_scramble += scramble[i][j] : _m_scramble += "";
-		}
+		for (unsigned int j = 0; j < modifiers; j++) scramble[i][j] != ' ' ? _m_scramble += scramble[i][j] : _m_scramble += "";
 
-		_m_scramble += " ";
+		// Fixes the issue of multiple spaces for scrambles that can have an empty first move
+		if (scramble[i][0] == ' ') _m_scramble += "";
+		else _m_scramble += " ";
 		i++;
 
 		// This makes sure that the scramble stays on the screen, this only needs to happen if it's bigger than 3x3

@@ -30,16 +30,25 @@
     <ClCompile Include="src\C\Scramblers\scrambler.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\C\Scramblers\allocator.c">
+    <ClCompile Include="src\C\Scramblers\Allocator\allocator.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\C\Scramblers\threeScramble.c">
+    <ClCompile Include="src\C\Scramblers\NxN\threeScramble.c">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="src\C\Scramblers\fiveScramble.c">
+    <ClCompile Include="src\C\Scramblers\NxN\fiveScramble.c">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\C\Error\errorWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Valid\valid.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Side_Events\skewbScramble.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Side_Events\pyraminxScramble.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -56,16 +65,25 @@
     <ClInclude Include="src\C\Scramblers\scrambler.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\C\Scramblers\allocator.h">
+    <ClInclude Include="src\C\Scramblers\Allocator\allocator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\C\Scramblers\threeScramble.h">
+    <ClInclude Include="src\C\Scramblers\NxN\threeScramble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\C\Scramblers\fiveScramble.h">
+    <ClInclude Include="src\C\Scramblers\NxN\fiveScramble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\C\Error\errorWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Valid\valid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Side_Events\skewbScramble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Side_Events\pyraminxScramble.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
