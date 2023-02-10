@@ -10,7 +10,7 @@ This scrambler supports:
 7x7,
 Skewb,
 Pyraminx,
-Megaminx
+and Megaminx
 
 If you want to compile this yourself, download SFML 2.5.1 from here:
 https://www.sfml-dev.org/download.php
