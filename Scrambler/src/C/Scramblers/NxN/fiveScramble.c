@@ -16,6 +16,6 @@ void genFiveScramble(char** scramble, const unsigned int scrambleLength)
 		scramble[i][0] = moves[scramble[i][1] == 'w' && fourByFour ? rand() % 3 : rand() % 6];
 		scramble[i][2] = modifiers[rand() % 3];
 
-		if (!valid(scramble, i)) i--;
+		if (!valid(scramble, i, 0)) i--;
 	}
 }

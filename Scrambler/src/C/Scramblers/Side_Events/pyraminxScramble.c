@@ -14,7 +14,7 @@ void genPyraminxScramble(char** scramble, const unsigned int scrambleLength)
 		scramble[i][0] = moves[rand() % sizeof(moves) / sizeof(char)];
 		scramble[i][1] = modifiers[rand() % sizeof(modifiers) / sizeof(char)];
 
-		if (!valid(scramble, i)) i--;
+		if (!valid(scramble, i, 0)) i--;
 		i++;
 	}
 

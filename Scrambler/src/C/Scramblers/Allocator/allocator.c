@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-char** nxnAllocator(const unsigned int modifiers, const unsigned int scrambleLength)
+char** allocator(const unsigned int modifiers, const unsigned int scrambleLength)
 {
 	// The +1 is for NULL characters so that the nxnFreeScramble function knows when to stop
 	char** scramble = (char**)malloc((scrambleLength + 1) * sizeof(char*));

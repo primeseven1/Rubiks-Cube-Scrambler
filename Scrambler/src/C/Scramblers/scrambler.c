@@ -1,13 +1,14 @@
 #include <stdlib.h>
 #include "./NxN/threeScramble.h"
 #include "./NxN/fiveScramble.h"
+#include "./NxN/sevenScramble.h"
 #include "./Side_Events/skewbScramble.h"
 #include "./Side_Events/pyraminxScramble.h"
 #include "./Side_Events/megaminxScramble.h"
 #include "./Allocator/allocator.h"
 #include "scrambler.h"
 
-void nxnFreeScramble(char** scramble)
+void freeScramble(char** scramble)
 {
 	unsigned int i = 0;
 	while (scramble[i][0] != '\0')
@@ -32,43 +33,55 @@ char** genScramble(const Puzzle puzzle)
 	{
 	case THREE_BY_THREE:
 		scrambleLength = rand() % (29 - 24) + 24;
-		scramble = nxnAllocator(THREE_BY_THREE_MODIFIERS, scrambleLength);
+		scramble = allocator(THREE_BY_THREE_MODIFIERS, scrambleLength);
 		genThreeScramble(scramble, scrambleLength);
 		break;
 	
 	case TWO_BY_TWO:
 		scrambleLength = rand() % (12 - 9) + 9;
-		scramble = nxnAllocator(TWO_BY_TWO_MODIFIERS, scrambleLength);
+		scramble = allocator(TWO_BY_TWO_MODIFIERS, scrambleLength);
 		genTwoScramble(scramble, scrambleLength);
 		break;
 
 	case FOUR_BY_FOUR:
 		scrambleLength = rand() % (49 - 42) + 42;
-		scramble = nxnAllocator(FOUR_BY_FOUR_MODIFIERS, scrambleLength);
+		scramble = allocator(FOUR_BY_FOUR_MODIFIERS, scrambleLength);
 		genFourScramble(scramble, scrambleLength);
 		break;
 
 	case FIVE_BY_FIVE:
 		scrambleLength = rand() % (63 - 55) + 55;
-		scramble = nxnAllocator(FIVE_BY_FIVE_MODIFIERS, scrambleLength);
+		scramble = allocator(FIVE_BY_FIVE_MODIFIERS, scrambleLength);
 		genFiveScramble(scramble, scrambleLength);
+		break;
+
+	case SIX_BY_SIX:
+		scrambleLength = rand() % (85 - 78) + 78;
+		scramble = allocator(SIX_BY_SIX_MODIFIERS, scrambleLength);
+		genSixScramble(scramble, scrambleLength);
+		break;
+
+	case SEVEN_BY_SEVEN:
+		scrambleLength = rand() % (103 - 91) + 91;
+		scramble = allocator(SEVEN_BY_SEVEN_MODIFIERS, scrambleLength);
+		genSevenScramble(scramble, scrambleLength);
 		break;
 
 	case SKEWB:
 		scrambleLength = rand() % (10 - 7) + 7;
-		scramble = nxnAllocator(SKEWB_MODIFIERS, scrambleLength);
+		scramble = allocator(SKEWB_MODIFIERS, scrambleLength);
 		genSkewbScramble(scramble, scrambleLength);
 		break;
 
 	case PYRAMINX:
 		scrambleLength = rand() % (15 - 10) + 10;
-		scramble = nxnAllocator(PYRAMINX_MODIFIERS, scrambleLength);
+		scramble = allocator(PYRAMINX_MODIFIERS, scrambleLength);
 		genPyraminxScramble(scramble, scrambleLength);
 		break;
 
 	case MEGAMINX:
 		scrambleLength = 77;
-		scramble = nxnAllocator(MEGAMINX_MODIFIERS, scrambleLength);
+		scramble = allocator(MEGAMINX_MODIFIERS, scrambleLength);
 		genMegaminxScramble(scramble, scrambleLength);
 		break;
 	}

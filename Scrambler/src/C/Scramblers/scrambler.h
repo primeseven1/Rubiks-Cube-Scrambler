@@ -8,6 +8,8 @@ typedef enum Puzzles
 	THREE_BY_THREE,
 	FOUR_BY_FOUR,
 	FIVE_BY_FIVE,
+	SIX_BY_SIX,
+	SEVEN_BY_SEVEN,
 	MEGAMINX
 } Puzzle;
 
@@ -19,8 +21,10 @@ enum PuzzleModifers
 	THREE_BY_THREE_MODIFIERS = 1,
 	FOUR_BY_FOUR_MODIFIERS = 2,
 	FIVE_BY_FIVE_MODIFIERS = 2,
-	MEGAMINX_MODIFIERS = 2
+	MEGAMINX_MODIFIERS = 2,
+	SIX_BY_SIX_MODIFIERS = 3,
+	SEVEN_BY_SEVEN_MODIFIERS = 3
 };
 
-void nxnFreeScramble(char** scramble);
+void freeScramble(char** scramble);
 char** genScramble(const Puzzle puzzle);
