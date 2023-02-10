@@ -59,6 +59,14 @@ void Window::_keyboardHandler(sf::Keyboard::Key& key)
 		ScrambleText::getInstance().setPuzzle(FIVE_BY_FIVE);
 		break;
 
+	case sf::Keyboard::Num6:
+		ScrambleText::getInstance().setPuzzle(SIX_BY_SIX);
+		break;
+
+	case sf::Keyboard::Num7:
+		ScrambleText::getInstance().setPuzzle(SEVEN_BY_SEVEN);
+		break;
+
 	case sf::Keyboard::S:
 		ScrambleText::getInstance().setPuzzle(SKEWB);
 		break;

@@ -1,6 +1,6 @@
 #pragma once
 
-#define WIDTH 800
+#define WIDTH 850
 #define HEIGHT 600
 
 class Window : public sf::RenderWindow

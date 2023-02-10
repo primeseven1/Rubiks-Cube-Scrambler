@@ -50,15 +50,15 @@ ScrambleText::ScrambleText()
 void ScrambleText::_setScramble(char** scramble)
 {
 	// The +1 includes the move that's not a modifer, since that needs to be displayed too
-	unsigned int modifiers = _m_puzzle < FOUR_BY_FOUR ? 1 + 1 : 2 + 1;
+	unsigned int modifiers = _m_puzzle < FOUR_BY_FOUR ? 1 + 1 : _m_puzzle < SIX_BY_SIX ? 2 + 1 : 3 + 1;
 	_m_scramble.clear();
 	unsigned int i = 0;
 	while (scramble[i][0] != '\0')
 	{
 		for (unsigned int j = 0; j < modifiers; j++) scramble[i][j] != ' ' ? _m_scramble += scramble[i][j] : _m_scramble += "";
 
-		// Fixes the issue of multiple spaces for scrambles that can have an empty first move
-		if (scramble[i][0] == ' ') _m_scramble += "";
+		// For some reason, there is a weird thing that happens only with the pyraminx tips
+		if (_m_puzzle == PYRAMINX && scramble[i][0] == ' ') _m_scramble += "";
 		else _m_scramble += " ";
 		i++;
 
@@ -66,8 +66,10 @@ void ScrambleText::_setScramble(char** scramble)
 		if (_m_puzzle > THREE_BY_THREE && i % 20 == 0) _m_scramble += "\n";
 	}
 
+	freeScramble(scramble);
+	scramble = nullptr;
+
 	this->setString(_m_scramble);
-	nxnFreeScramble(scramble);
 
 	// Since the scramble changed, this has to be called to make it center again
 	this->_m_bounds = this->getLocalBounds();
