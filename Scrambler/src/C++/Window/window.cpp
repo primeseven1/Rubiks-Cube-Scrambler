@@ -37,10 +37,7 @@ void Window::_eventHandler()
 				break;
 
 			case sf::Event::KeyPressed:
-				if (_m_keyBindings.count(windowEvent.key.code) > 0) 
-				{
-					_m_keyBindings[windowEvent.key.code]();
-				}
+				if (_m_keyBindings.count(windowEvent.key.code) > 0) _m_keyBindings[windowEvent.key.code]();
 				break;
 			}
 		}
