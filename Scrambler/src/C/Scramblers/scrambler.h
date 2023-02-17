@@ -8,9 +8,9 @@ typedef enum Puzzles
 	THREE_BY_THREE,
 	FOUR_BY_FOUR,
 	FIVE_BY_FIVE,
+	MEGAMINX,
 	SIX_BY_SIX,
-	SEVEN_BY_SEVEN,
-	MEGAMINX
+	SEVEN_BY_SEVEN
 } Puzzle;
 
 enum PuzzleModifers

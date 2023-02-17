@@ -10,5 +10,6 @@ public:
 
 private:
 	void _eventHandler();
-	void _keyboardHandler(sf::Keyboard::Key& key);
+	
+	std::unordered_map<sf::Keyboard::Key, std::function<void()>> _m_keyBindings;
 };

@@ -4,6 +4,19 @@
 
 Window::Window(const unsigned int width, const unsigned int height, const char* title, sf::Uint32 style)
 {
+	_m_keyBindings = {
+	{ sf::Keyboard::Enter, []() { ScrambleText::getInstance().generateScramble(); } },
+	{ sf::Keyboard::Num2, []() { ScrambleText::getInstance().setPuzzle(TWO_BY_TWO); } },
+	{ sf::Keyboard::Num3, []() { ScrambleText::getInstance().setPuzzle(THREE_BY_THREE); } },
+	{ sf::Keyboard::Num4, []() { ScrambleText::getInstance().setPuzzle(FOUR_BY_FOUR); } },
+	{ sf::Keyboard::Num5, []() { ScrambleText::getInstance().setPuzzle(FIVE_BY_FIVE); } },
+	{ sf::Keyboard::Num6, []() { ScrambleText::getInstance().setPuzzle(SIX_BY_SIX); } },
+	{ sf::Keyboard::Num7, []() { ScrambleText::getInstance().setPuzzle(SEVEN_BY_SEVEN); } },
+	{ sf::Keyboard::S, []() { ScrambleText::getInstance().setPuzzle(SKEWB); } },
+	{ sf::Keyboard::P, []() { ScrambleText::getInstance().setPuzzle(PYRAMINX); } },
+	{ sf::Keyboard::M, []() { ScrambleText::getInstance().setPuzzle(MEGAMINX); } }
+	};
+
 	this->create(sf::VideoMode(width, height), title, style);
 	this->setFramerateLimit(30); // Reduces CPU usage by a lot
 	this->_eventHandler();
@@ -24,7 +37,10 @@ void Window::_eventHandler()
 				break;
 
 			case sf::Event::KeyPressed:
-				this->_keyboardHandler(windowEvent.key.code);
+				if (_m_keyBindings.count(windowEvent.key.code) > 0) 
+				{
+					_m_keyBindings[windowEvent.key.code]();
+				}
 				break;
 			}
 		}
@@ -32,51 +48,5 @@ void Window::_eventHandler()
 		this->clear(sf::Color(53, 54, 58));
 		this->draw(ScrambleText::getInstance());
 		this->display();
-	}
-}
-
-void Window::_keyboardHandler(sf::Keyboard::Key& key)
-{
-	switch (key)
-	{
-	case sf::Keyboard::Enter:
-		ScrambleText::getInstance().generateScramble();
-		break;
-
-	case sf::Keyboard::Num2:
-		ScrambleText::getInstance().setPuzzle(TWO_BY_TWO);
-		break;
-
-	case sf::Keyboard::Num3:
-		ScrambleText::getInstance().setPuzzle(THREE_BY_THREE);
-		break;
-
-	case sf::Keyboard::Num4:
-		ScrambleText::getInstance().setPuzzle(FOUR_BY_FOUR);
-		break;
-
-	case sf::Keyboard::Num5:
-		ScrambleText::getInstance().setPuzzle(FIVE_BY_FIVE);
-		break;
-
-	case sf::Keyboard::Num6:
-		ScrambleText::getInstance().setPuzzle(SIX_BY_SIX);
-		break;
-
-	case sf::Keyboard::Num7:
-		ScrambleText::getInstance().setPuzzle(SEVEN_BY_SEVEN);
-		break;
-
-	case sf::Keyboard::S:
-		ScrambleText::getInstance().setPuzzle(SKEWB);
-		break;
-
-	case sf::Keyboard::P:
-		ScrambleText::getInstance().setPuzzle(PYRAMINX);
-		break;
-
-	case sf::Keyboard::M:
-		ScrambleText::getInstance().setPuzzle(MEGAMINX);
-		break;
 	}
 }

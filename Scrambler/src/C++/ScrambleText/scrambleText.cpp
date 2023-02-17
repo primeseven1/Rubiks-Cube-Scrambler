@@ -17,7 +17,7 @@ static sf::Font loadFont(const char* filePath)
 
 ScrambleText& ScrambleText::getInstance()
 {
-	// This class is a singleton, so I have to access it statically
+	// This class is a singleton, so you have to access it statically
 	static ScrambleText instance;
 	return instance;
 }

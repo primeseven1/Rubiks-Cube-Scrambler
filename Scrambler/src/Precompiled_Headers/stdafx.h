@@ -13,6 +13,8 @@
 
 #include <string>
 #include <cstdlib>
+#include <unordered_map>
+#include <functional>
 
 #pragma endregion
 
