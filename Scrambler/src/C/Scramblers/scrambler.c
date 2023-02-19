@@ -10,6 +10,8 @@
 
 void freeScramble(char** scramble)
 {
+	if (!scramble) return;
+
 	unsigned int i = 0;
 	while (scramble[i][0] != '\0')
 	{
@@ -27,62 +29,59 @@ void freeScramble(char** scramble)
 char** genScramble(const Puzzle puzzle)
 {
 	char** scramble = NULL;
-	unsigned int scrambleLength;
+
+	// The last element are scramble lengths
+	unsigned int puzzleInfo[9][3] = { { THREE_BY_THREE, THREE_BY_THREE_MODIFIERS, rand() % (29 - 24) + 24 },
+									{ TWO_BY_TWO, TWO_BY_TWO_MODIFIERS, rand() % (12 - 9) + 9},
+									{ FOUR_BY_FOUR, FOUR_BY_FOUR_MODIFIERS, rand() % (49 - 42) + 42},
+									{ FIVE_BY_FIVE, FIVE_BY_FIVE_MODIFIERS, rand() % (63 - 55) + 55},
+									{ SIX_BY_SIX, SIX_BY_SIX_MODIFIERS, rand() % (85 - 78) + 78},
+									{ SEVEN_BY_SEVEN, SEVEN_BY_SEVEN_MODIFIERS, rand() % (103 - 91) + 91},
+									{ SKEWB, SKEWB_MODIFIERS, rand() % (10 - 7) + 7},
+									{ PYRAMINX, PYRAMINX_MODIFIERS, rand() % (15 - 10) + 10},
+									{ MEGAMINX, MEGAMINX_MODIFIERS, 77}
+								  /*{CLOCK, CLOCK_MODIFIERS, 19}*/ };
+
+	unsigned int i = 0;
+	while (puzzle != puzzleInfo[i][0]) i++;
+	scramble = allocator(puzzleInfo[i][1], puzzleInfo[i][2]);
 
 	switch (puzzle)
 	{
 	case THREE_BY_THREE:
-		scrambleLength = rand() % (29 - 24) + 24;
-		scramble = allocator(THREE_BY_THREE_MODIFIERS, scrambleLength);
-		genThreeScramble(scramble, scrambleLength);
+		genThreeScramble(scramble, puzzleInfo[i][2]);
 		break;
-	
+
 	case TWO_BY_TWO:
-		scrambleLength = rand() % (12 - 9) + 9;
-		scramble = allocator(TWO_BY_TWO_MODIFIERS, scrambleLength);
-		genTwoScramble(scramble, scrambleLength);
+		genTwoScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case FOUR_BY_FOUR:
-		scrambleLength = rand() % (49 - 42) + 42;
-		scramble = allocator(FOUR_BY_FOUR_MODIFIERS, scrambleLength);
-		genFourScramble(scramble, scrambleLength);
+		genFourScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case FIVE_BY_FIVE:
-		scrambleLength = rand() % (63 - 55) + 55;
-		scramble = allocator(FIVE_BY_FIVE_MODIFIERS, scrambleLength);
-		genFiveScramble(scramble, scrambleLength);
+		genFiveScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case SIX_BY_SIX:
-		scrambleLength = rand() % (85 - 78) + 78;
-		scramble = allocator(SIX_BY_SIX_MODIFIERS, scrambleLength);
-		genSixScramble(scramble, scrambleLength);
+		genSixScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case SEVEN_BY_SEVEN:
-		scrambleLength = rand() % (103 - 91) + 91;
-		scramble = allocator(SEVEN_BY_SEVEN_MODIFIERS, scrambleLength);
-		genSevenScramble(scramble, scrambleLength);
+		genSevenScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case SKEWB:
-		scrambleLength = rand() % (10 - 7) + 7;
-		scramble = allocator(SKEWB_MODIFIERS, scrambleLength);
-		genSkewbScramble(scramble, scrambleLength);
+		genSkewbScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case PYRAMINX:
-		scrambleLength = rand() % (15 - 10) + 10;
-		scramble = allocator(PYRAMINX_MODIFIERS, scrambleLength);
-		genPyraminxScramble(scramble, scrambleLength);
+		genPyraminxScramble(scramble, puzzleInfo[i][2]);
 		break;
 
 	case MEGAMINX:
-		scrambleLength = 77;
-		scramble = allocator(MEGAMINX_MODIFIERS, scrambleLength);
-		genMegaminxScramble(scramble, scrambleLength);
+		genMegaminxScramble(scramble, puzzleInfo[i][2]);
 		break;
 	}
 
