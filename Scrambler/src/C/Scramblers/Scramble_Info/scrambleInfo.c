@@ -1,8 +1,7 @@
 #include <stdlib.h>
 #include "scrambleInfo.h"
 
-// First Element: The puzzle
-static unsigned int scrambleLengths[8][3] = {
+static unsigned int scrambleLengths[][3] = {
 	{ THREE_BY_THREE, THREE_BY_THREE_MIN, THREE_BY_THREE_MAX },
 	{ TWO_BY_TWO, TWO_BY_TWO_MIN, TWO_BY_TWO_MAX },
 	{ FOUR_BY_FOUR, FOUR_BY_FOUR_MIN, FOUR_BY_FOUR_MAX },

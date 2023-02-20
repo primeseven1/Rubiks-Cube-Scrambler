@@ -10,7 +10,8 @@ typedef enum Puzzles
 	FIVE_BY_FIVE,
 	MEGAMINX,
 	SIX_BY_SIX,
-	SEVEN_BY_SEVEN
+	SEVEN_BY_SEVEN,
+	CLOCK
 } Puzzle;
 
 enum PuzzleModifers
@@ -23,7 +24,8 @@ enum PuzzleModifers
 	FIVE_BY_FIVE_MODIFIERS = 2,
 	MEGAMINX_MODIFIERS = 2,
 	SIX_BY_SIX_MODIFIERS = 3,
-	SEVEN_BY_SEVEN_MODIFIERS = 3
+	SEVEN_BY_SEVEN_MODIFIERS = 3,
+	CLOCK_MODIFIERS = 4
 };
 
 enum MinMaxLengths

@@ -3,10 +3,10 @@
 
 typedef struct Info
 {
-	Puzzle puzzle;
-	unsigned int modifiers;
+	const Puzzle puzzle;
+	const unsigned int modifiers;
 	unsigned int scrambleLength;
-	void (*scrambleFunctionPtr)(char** scramble, unsigned int scramble_length);
+	void (* const scrambleFunctionPtr)(char** scramblePtr, const unsigned int scrambleLen);
 } PuzzleInfo;
 
 void genScrambleLengths(PuzzleInfo* info);
