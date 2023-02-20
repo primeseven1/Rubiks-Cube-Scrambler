@@ -42,7 +42,7 @@ char** genScramble(const Puzzle puzzle)
 		{ SKEWB, SKEWB_MODIFIERS, rand() % (10 - 7) + 7, genSkewbScramble },
 		{ PYRAMINX, PYRAMINX_MODIFIERS, rand() % (15 - 10) + 10, genPyraminxScramble },
 		{ MEGAMINX, MEGAMINX_MODIFIERS, 77, genMegaminxScramble }
-		};
+	};
 
 	unsigned int i = 0;
 	while (puzzle != puzzleInfo[i][0]) i++;
