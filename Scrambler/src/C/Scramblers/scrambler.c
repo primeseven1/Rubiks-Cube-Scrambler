@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <stdio.h>
 #include "./NxN/threeScramble.h"
 #include "./NxN/fiveScramble.h"
 #include "./NxN/sevenScramble.h"
@@ -6,6 +7,7 @@
 #include "./Side_Events/pyraminxScramble.h"
 #include "./Side_Events/megaminxScramble.h"
 #include "./Allocator/allocator.h"
+#include "./Scramble_Info/scrambleInfo.h"
 #include "scrambler.h"
 
 void freeScramble(char** scramble)
@@ -26,32 +28,32 @@ void freeScramble(char** scramble)
 	free(scramble);
 }
 
+static PuzzleInfo puzzleInfo[] = {
+	{.puzzle = THREE_BY_THREE, .modifiers = THREE_BY_THREE_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genThreeScramble },
+	{.puzzle = TWO_BY_TWO, .modifiers = TWO_BY_TWO_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genTwoScramble },
+	{.puzzle = FOUR_BY_FOUR, .modifiers = FOUR_BY_FOUR_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genFourScramble },
+	{.puzzle = FIVE_BY_FIVE, .modifiers = FIVE_BY_FIVE_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genFiveScramble },
+	{.puzzle = SIX_BY_SIX, .modifiers = SIX_BY_SIX_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSixScramble },
+	{.puzzle = SEVEN_BY_SEVEN, .modifiers = SEVEN_BY_SEVEN_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSevenScramble },
+	{.puzzle = SKEWB, .modifiers = SKEWB_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSkewbScramble },
+	{.puzzle = PYRAMINX, .modifiers = PYRAMINX_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genPyraminxScramble },
+	{.puzzle = MEGAMINX, .modifiers = MEGAMINX_MODIFIERS, .scrambleLength = MEGAMINX_LENGTH, .scrambleFunctionPtr = genMegaminxScramble }
+};
+
 char** genScramble(const Puzzle puzzle)
 {
 	char** scramble = NULL;
 
-	// The last third element of the arrays are scramble lengths
-	// The last element of the arrays are function pointers
-	unsigned long long puzzleInfo[9][4] = {
-		{ THREE_BY_THREE, THREE_BY_THREE_MODIFIERS, rand() % (THREE_BY_THREE_MAX - THREE_BY_THREE_MIN) + THREE_BY_THREE_MIN, genThreeScramble },
-		{ TWO_BY_TWO, TWO_BY_TWO_MODIFIERS, rand() % (TWO_BY_TWO_MAX - TWO_BY_TWO_MIN) + TWO_BY_TWO_MIN, genTwoScramble },
-		{ FOUR_BY_FOUR, FOUR_BY_FOUR_MODIFIERS, rand() % (FOUR_BY_FOUR_MAX - FOUR_BY_FOUR_MIN) + FOUR_BY_FOUR_MIN, genFourScramble },
-		{ FIVE_BY_FIVE, FIVE_BY_FIVE_MODIFIERS, rand() % (FIVE_BY_FIVE_MAX - FIVE_BY_FIVE_MIN) + FIVE_BY_FIVE_MIN, genFiveScramble },
-		{ SIX_BY_SIX, SIX_BY_SIX_MODIFIERS, rand() % (SIX_BY_SIX - SIX_BY_SIX_MIN) + SIX_BY_SIX_MIN, genSixScramble },
-		{ SEVEN_BY_SEVEN, SEVEN_BY_SEVEN_MODIFIERS, rand() % (SEVEN_BY_SEVEN_MAX - SEVEN_BY_SEVEN_MIN) + SEVEN_BY_SEVEN_MIN, genSevenScramble },
-		{ SKEWB, SKEWB_MODIFIERS, rand() % (SKEWB_MAX - SKEWB_MIN) + SKEWB_MIN, genSkewbScramble },
-		{ PYRAMINX, PYRAMINX_MODIFIERS, rand() % (PYRAMINX_MAX - PYRAMINX_MIN) + PYRAMINX_MIN, genPyraminxScramble },
-		{ MEGAMINX, MEGAMINX_MODIFIERS, MEGAMINX_LENGTH, genMegaminxScramble }
-	};
-
 	unsigned int i = 0;
-	while (puzzle != puzzleInfo[i][0]) i++;
-	scramble = allocator(puzzleInfo[i][1], puzzleInfo[i][2]);
+	while (puzzle != puzzleInfo[i].puzzle) i++;
+
+	genScrambleLengths(&puzzleInfo[i]);
+
+	scramble = allocator(puzzleInfo[i].modifiers, puzzleInfo[i].scrambleLength);
 
 	if (!scramble) return NULL;
 
-	void(*scrambleGen)(char** scramble, unsigned int scrambleLength) = puzzleInfo[i][3];
-	scrambleGen(scramble, puzzleInfo[i][2]);
+	puzzleInfo[i].scrambleFunctionPtr(scramble, puzzleInfo[i].scrambleLength);
 
 	return scramble;
 }
