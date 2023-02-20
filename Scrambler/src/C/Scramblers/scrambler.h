@@ -26,5 +26,26 @@ enum PuzzleModifers
 	SEVEN_BY_SEVEN_MODIFIERS = 3
 };
 
+enum MinMaxLengths
+{
+	THREE_BY_THREE_MIN = 24,
+	THREE_BY_THREE_MAX = 29,
+	TWO_BY_TWO_MIN = 9,
+	TWO_BY_TWO_MAX = 12,
+	FOUR_BY_FOUR_MIN = 42,
+	FOUR_BY_FOUR_MAX = 49,
+	FIVE_BY_FIVE_MIN = 55,
+	FIVE_BY_FIVE_MAX = 63,
+	SIX_BY_SIX_MIN = 78,
+	SIX_BY_SIX_MAX = 85,
+	SEVEN_BY_SEVEN_MIN = 91,
+	SEVEN_BY_SEVEN_MAX = 103,
+	SKEWB_MIN = 7,
+	SKEWB_MAX = 10,
+	PYRAMINX_MIN = 10,
+	PYRAMINX_MAX = 15,
+	MEGAMINX_LENGTH = 77
+};
+
 void freeScramble(char** scramble);
 char** genScramble(const Puzzle puzzle);
