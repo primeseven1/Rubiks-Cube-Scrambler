@@ -6,6 +6,7 @@
 #include "./Side_Events/skewbScramble.h"
 #include "./Side_Events/pyraminxScramble.h"
 #include "./Side_Events/megaminxScramble.h"
+#include "./Side_Events/clockScramble.h"
 #include "./Allocator/allocator.h"
 #include "./Scramble_Info/scrambleInfo.h"
 #include "scrambler.h"
@@ -37,7 +38,8 @@ static PuzzleInfo puzzleInfo[] = {
 	{.puzzle = SEVEN_BY_SEVEN, .modifiers = SEVEN_BY_SEVEN_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSevenScramble },
 	{.puzzle = SKEWB, .modifiers = SKEWB_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSkewbScramble },
 	{.puzzle = PYRAMINX, .modifiers = PYRAMINX_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genPyraminxScramble },
-	{.puzzle = MEGAMINX, .modifiers = MEGAMINX_MODIFIERS, .scrambleLength = MEGAMINX_LENGTH, .scrambleFunctionPtr = genMegaminxScramble }
+	{.puzzle = MEGAMINX, .modifiers = MEGAMINX_MODIFIERS, .scrambleLength = MEGAMINX_LENGTH, .scrambleFunctionPtr = genMegaminxScramble },
+	{.puzzle = CLOCK, .modifiers = CLOCK_MODIFIERS, .scrambleLength = CLOCK_LENGTH, .scrambleFunctionPtr = genClockScramble }
 };
 
 char** genScramble(const Puzzle puzzle)

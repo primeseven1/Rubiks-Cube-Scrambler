@@ -15,7 +15,7 @@ static unsigned int scrambleLengths[][3] = {
 void genScrambleLengths(PuzzleInfo* info)
 {
 	// Megaminx scramble lengths are always the same
-	if (info->puzzle == MEGAMINX) return;
+	if (info->puzzle == MEGAMINX || info->puzzle == CLOCK) return;
 
 	int i = 0;
 	while (info->puzzle != scrambleLengths[i][0]) i++;
