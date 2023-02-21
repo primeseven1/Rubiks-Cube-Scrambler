@@ -22,10 +22,7 @@ ScrambleText& ScrambleText::getInstance()
 	return instance;
 }
 
-void ScrambleText::setPuzzle(Puzzle puzzle)
-{
-	_m_puzzle = puzzle;
-}
+void ScrambleText::setPuzzle(Puzzle puzzle) { _m_puzzle = puzzle; }
 
 void ScrambleText::generateScramble()
 {
