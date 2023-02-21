@@ -5,6 +5,8 @@ static const char modifiers[] = { '+', '-' };
 
 void genMegaminxScramble(char** scramble, const unsigned int scrambleLength)
 {
+	if (!scramble) return;
+
 	// No need for a valid function
 	for (unsigned int i = 0; i < scrambleLength; i++)
 	{

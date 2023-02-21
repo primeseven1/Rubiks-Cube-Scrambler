@@ -11,6 +11,8 @@ static const char pins[][2] = { { 'U', 'R' }, { 'D', 'R' }, { 'D', 'L' }, { 'U',
 
 void genClockScramble(char** scramble, const unsigned int scrambleLength)
 {
+	if (!scramble) return;
+
 	// Generate first four moves
 	unsigned int i = 0;
 	for (; i < 4; i++)

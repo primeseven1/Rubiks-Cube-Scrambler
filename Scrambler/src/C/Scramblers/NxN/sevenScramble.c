@@ -7,6 +7,8 @@ static const char modifiers[] = { '\'', '2', ' '};
 
 void genSevenScramble(char** scramble, const unsigned int scrambleLength)
 {
+	if (!scramble) return;
+
 	int sixBySix = scrambleLength < 90 ? 1 : 0;
 
 	for (unsigned int i = 0; i < scrambleLength; i++)

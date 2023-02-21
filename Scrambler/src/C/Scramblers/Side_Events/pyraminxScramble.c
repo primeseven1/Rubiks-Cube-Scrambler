@@ -8,6 +8,8 @@ static const char pyraminxTips[] = { 'u', 'r', 'l', 'b' };
 
 void genPyraminxScramble(char** scramble, const unsigned int scrambleLength)
 {
+	if (!scramble) return;
+
 	unsigned int i = 0;
 	while (i < scrambleLength - 4)
 	{

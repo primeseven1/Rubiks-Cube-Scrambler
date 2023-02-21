@@ -7,6 +7,8 @@ static const char modifiers[] = { ' ', '\'' };
 
 void genSkewbScramble(char** scramble, const unsigned int scrambleLength)
 {
+	if (!scramble) return;
+
 	for (unsigned int i = 0; i < scrambleLength; i++)
 	{
 		scramble[i][0] = moves[rand() % sizeof(moves) / sizeof(char)];
