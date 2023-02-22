@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "threeScramble.h"
 #include "../Valid/valid.h"
 
@@ -14,8 +15,8 @@ void genThreeScramble(char** scramble, const unsigned int scrambleLength)
 	for (unsigned int i = 0; i < scrambleLength; i++)
 	{
 		// If it's a 2x2 scramble, it only needs to generate for the first 3 moves of the moves array
-		scramble[i][0] = moves[twoByTwo ? rand() % ((sizeof(moves) / 2) / sizeof(char)) : rand() % (sizeof(moves) / sizeof(char))];
-		scramble[i][1] = modifiers[rand() % (sizeof(modifiers) / sizeof(char))];
+		scramble[i][0] = moves[twoByTwo ? rand() % strlen(moves) / 2 : rand() % strlen(moves)];
+		scramble[i][1] = modifiers[rand() % strlen(modifiers)];
 
 		if (!valid(scramble, i, 0)) i--;
 	}

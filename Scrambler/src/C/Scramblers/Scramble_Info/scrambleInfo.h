@@ -1,7 +1,7 @@
 #pragma once
 #include "../scrambler.h"
 
-typedef struct Info
+typedef struct PuzzleInfo
 {
 	const Puzzle puzzle;
 	const unsigned int modifiers;

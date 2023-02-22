@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 #include "megaminxScramble.h"
 
 static const char modifiers[] = { '+', '-' };
@@ -19,7 +20,7 @@ void genMegaminxScramble(char** scramble, const unsigned int scrambleLength)
 		}
 
 		scramble[i][0] = i % 2 == 0 ? 'R' : 'D';
-		scramble[i][1] = modifiers[rand() % 2];
+		scramble[i][1] = modifiers[rand() % strlen(modifiers)];
 		scramble[i][2] = scramble[i][1];
 	}
 }
