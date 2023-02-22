@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <stdio.h>
 #include "./NxN/threeScramble.h"
 #include "./NxN/fiveScramble.h"
 #include "./NxN/sevenScramble.h"

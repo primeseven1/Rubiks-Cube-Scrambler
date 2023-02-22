@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include "clockScramble.h"
 #include "../scrambler.h"
 
@@ -19,8 +18,8 @@ void genClockScramble(char** scramble, const unsigned int scrambleLength)
 	{
 		scramble[i][0] = i < 2 ? 'U' : 'D';
 		scramble[i][1] = pinOrder[i];
-		scramble[i][2] = numOfTurns[rand() % strlen(numOfTurns)];
-		scramble[i][3] = clockwiseOrCounter[rand() % strlen(clockwiseOrCounter)];
+		scramble[i][2] = numOfTurns[rand() % sizeof(numOfTurns)];
+		scramble[i][3] = clockwiseOrCounter[rand() % sizeof(clockwiseOrCounter)];
 	}
 	
 	// J is used for array indexes now since the variable "i" can't do that anymore
@@ -28,16 +27,16 @@ void genClockScramble(char** scramble, const unsigned int scrambleLength)
 	for (unsigned int j = 0; j < 4; j++)
 	{
 		scramble[i][0] = pinOrder2[j];
-		scramble[i][1] = numOfTurns[rand() % strlen(numOfTurns)];
-		scramble[i][2] = clockwiseOrCounter[rand() % strlen(clockwiseOrCounter)];
+		scramble[i][1] = numOfTurns[rand() % sizeof(numOfTurns)];
+		scramble[i][2] = clockwiseOrCounter[rand() % sizeof(clockwiseOrCounter)];
 		scramble[i][3] = ' ';
 		i++;
 	}
 
 	// A means all, and it just generates that for that move
 	scramble[i][0] = 'A';
-	scramble[i][1] = numOfTurns[rand() % strlen(numOfTurns)];
-	scramble[i][2] = clockwiseOrCounter[rand() % strlen(clockwiseOrCounter)];
+	scramble[i][1] = numOfTurns[rand() % sizeof(numOfTurns)];
+	scramble[i][2] = clockwiseOrCounter[rand() % sizeof(clockwiseOrCounter)];
 	scramble[i][3] = ' ';
 	i++;
 
@@ -49,15 +48,15 @@ void genClockScramble(char** scramble, const unsigned int scrambleLength)
 	for (unsigned int j = 0; j < 4; j++)
 	{
 		scramble[i][0] = scramble[i - 6][0];
-		scramble[i][1] = numOfTurns[rand() % strlen(numOfTurns)];
-		scramble[i][2] = clockwiseOrCounter[rand() % strlen(clockwiseOrCounter)];
+		scramble[i][1] = numOfTurns[rand() % sizeof(numOfTurns)];
+		scramble[i][2] = clockwiseOrCounter[rand() % sizeof(clockwiseOrCounter)];
 		scramble[i][3] = scramble[i - 6][3];
 		i++;
 	}
 
 	scramble[i][0] = 'A';
-	scramble[i][1] = numOfTurns[rand() % strlen(numOfTurns)];
-	scramble[i][2] = clockwiseOrCounter[rand() % strlen(clockwiseOrCounter)];
+	scramble[i][1] = numOfTurns[rand() % sizeof(numOfTurns)];
+	scramble[i][2] = clockwiseOrCounter[rand() % sizeof(clockwiseOrCounter)];
 	scramble[i][3] = ' ';
 	i++;
 

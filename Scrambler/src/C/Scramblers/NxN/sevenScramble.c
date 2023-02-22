@@ -1,5 +1,4 @@
 #include <stdlib.h>
-#include <string.h>
 #include "../Valid/valid.h"
 #include "sevenScramble.h"
 
@@ -16,7 +15,7 @@ void genSevenScramble(char** scramble, const unsigned int scrambleLength)
 	{
 		scramble[i][0] = rand() % 3 == 0 ? '3' : ' ';
 		scramble[i][2] = scramble[i][0] == '3' ? 'w' : rand() % 2 == 0 ? 'w' : ' ';
-		scramble[i][1] = sixBySix ? moves[rand() % strlen(moves) / 2] : moves[rand() % strlen(moves)];
+		scramble[i][1] = sixBySix ? moves[rand() % sizeof(moves) / 2] : moves[rand() % sizeof(moves)];
 		scramble[i][3] = rand() % 2 == 0 ? '\'' : ' ';
 
 		if (!valid(scramble, i, 1)) i--;
