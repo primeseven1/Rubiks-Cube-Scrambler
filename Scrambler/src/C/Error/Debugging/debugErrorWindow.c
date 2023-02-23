@@ -2,7 +2,7 @@
 
 void wrongFunctionCall(LPCSTR functionName)
 {
-	char error1[] = "The wrong function was called, continue?\n\n Function name: ";
+	char error1[] = "The wrong function was called, the function will not continue.\n\nContinue?\n\nFunction name: ";
 
 	char* fullError = (char*)malloc(strlen(error1) + strlen(functionName) + 1);
 

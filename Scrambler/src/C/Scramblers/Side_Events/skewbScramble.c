@@ -9,7 +9,11 @@ void genSkewbScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;
-	if (info->puzzle != SKEWB || info->modifiers != SKEWB_MODIFIERS) wrongFunctionCall(__func__);;
+	if (info->puzzle != SKEWB || info->modifiers != SKEWB_MODIFIERS)
+	{
+		wrongFunctionCall(__func__);
+		return;
+	}
 
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{

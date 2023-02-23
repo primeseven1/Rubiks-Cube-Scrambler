@@ -7,7 +7,11 @@ void genMegaminxScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;
-	if (info->puzzle != MEGAMINX|| info->modifiers != MEGAMINX_MODIFIERS) wrongFunctionCall(__func__);;
+	if (info->puzzle != MEGAMINX || info->modifiers != MEGAMINX_MODIFIERS)
+	{
+		wrongFunctionCall(__func__);
+		return;
+	}
 
 	// No need for a valid function
 	for (unsigned int i = 0; i < info->scrambleLength; i++)

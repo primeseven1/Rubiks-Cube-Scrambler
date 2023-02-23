@@ -11,7 +11,11 @@ void genSevenScramble(char** scramble, const PuzzleInfo* info)
 	// Yes... there is redundant code since the 7x7 modifiers are the same as the 6x6 modifiers, but it makes it more readable since it can generate 6x6 scrambles too
 	if (!scramble) return;
 	if (info->puzzle != SEVEN_BY_SEVEN && info->puzzle != SIX_BY_SIX ||
-		info->modifiers != SEVEN_BY_SEVEN_MODIFIERS && info->modifiers != SIX_BY_SIX_MODIFIERS) wrongFunctionCall(__func__);;
+		info->modifiers != SEVEN_BY_SEVEN_MODIFIERS && info->modifiers != SIX_BY_SIX_MODIFIERS)
+	{
+		wrongFunctionCall(__func__);
+		return;
+	}
 
 	int sixBySix = info->puzzle == SIX_BY_SIX ? 1 : 0;
 

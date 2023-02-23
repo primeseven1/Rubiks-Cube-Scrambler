@@ -11,7 +11,11 @@ void genFiveScramble(char** scramble, const PuzzleInfo* info)
 	// Yes... there is redundant code since the 4x4 modifiers are the same as the 5x5 modifiers, but it makes it more readable since it can generate 4x4 scrambles too
 	if (!scramble) return;	
 	if (info->puzzle != FIVE_BY_FIVE && info->puzzle != FOUR_BY_FOUR ||
-		info->modifiers != FIVE_BY_FIVE_MODIFIERS && info->modifiers != FOUR_BY_FOUR_MODIFIERS) wrongFunctionCall(__func__);;
+		info->modifiers != FIVE_BY_FIVE_MODIFIERS && info->modifiers != FOUR_BY_FOUR_MODIFIERS) 
+	{
+		wrongFunctionCall(__func__);
+		return;
+	}
 
 	int fourByFour = info->puzzle == FOUR_BY_FOUR ? 1 : 0;
 

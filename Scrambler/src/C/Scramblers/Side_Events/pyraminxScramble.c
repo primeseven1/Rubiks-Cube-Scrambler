@@ -10,7 +10,11 @@ void genPyraminxScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;
-	if (info->puzzle != PYRAMINX || info->modifiers != PYRAMINX_MODIFIERS) wrongFunctionCall(__func__);;
+	if (info->puzzle != PYRAMINX || info->modifiers != PYRAMINX_MODIFIERS)
+	{
+		wrongFunctionCall(__func__);
+		return;
+	}
 
 	unsigned int i = 0;
 	for ( ; i < info->scrambleLength - 4; i++)
