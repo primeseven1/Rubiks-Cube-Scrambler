@@ -10,7 +10,9 @@ static const char pins[][2] = { { 'U', 'R' }, { 'D', 'R' }, { 'D', 'L' }, { 'U',
 
 void genClockScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble || info->puzzle != CLOCK || info->scrambleLength != CLOCK_LENGTH) return;
+	// Preventing memory access violations or undefined behavior
+	if (!scramble || info->puzzle != CLOCK || info->scrambleLength != CLOCK_LENGTH ||
+		info->modifiers != CLOCK_MODIFIERS) return;
 
 	// Generate first four moves
 	unsigned int i = 0;

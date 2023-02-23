@@ -7,7 +7,10 @@ static const char modifiers[] = { '\'', '2', ' '};
 
 void genSevenScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble || info->puzzle != SEVEN_BY_SEVEN && info->puzzle != SIX_BY_SIX) return;
+	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
+	// Yes... there is redundant code since the 7x7 modifiers are the same as the 6x6 modifiers, but it makes it more readable since it can generate 6x6 scrambles too
+	if (!scramble || info->puzzle != SEVEN_BY_SEVEN && info->puzzle != SIX_BY_SIX ||
+		info->modifiers != SEVEN_BY_SEVEN_MODIFIERS && info->modifiers != SIX_BY_SIX_MODIFIERS) return;
 
 	int sixBySix = info->scrambleLength < 90 ? 1 : 0;
 

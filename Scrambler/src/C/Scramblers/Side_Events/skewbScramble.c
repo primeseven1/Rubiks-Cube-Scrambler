@@ -7,7 +7,9 @@ static const char modifiers[] = { ' ', '\'' };
 
 void genSkewbScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble || info->puzzle != SKEWB) return;
+	// Preventing memory access violations or undefined behavior
+	if (!scramble || info->puzzle != SKEWB ||
+		info->modifiers != SKEWB_MODIFIERS) return;
 
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{

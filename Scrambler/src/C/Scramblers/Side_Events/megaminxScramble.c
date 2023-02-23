@@ -5,7 +5,9 @@ static const char modifiers[] = { '+', '-' };
 
 void genMegaminxScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble || info->puzzle != MEGAMINX) return;
+	// Preventing memory access violations or undefined behavior
+	if (!scramble || info->puzzle != MEGAMINX ||
+		info->modifiers != MEGAMINX_MODIFIERS) return;
 
 	// No need for a valid function
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
