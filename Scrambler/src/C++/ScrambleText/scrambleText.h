@@ -15,11 +15,6 @@ public:
 private:
 	void _setScramble(char** scramble);
 
-	ScrambleText(const ScrambleText&) = delete;
-	ScrambleText(ScrambleText&&) = delete;
-	ScrambleText& operator=(const ScrambleText&) = delete;
-	ScrambleText& operator=(ScrambleText&&) = delete;
-
 	std::string _m_scramble;
 	sf::Font _m_font;
 	Puzzle _m_puzzle;
