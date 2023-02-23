@@ -1,15 +1,14 @@
 #include "../../Precompiled_Headers/stdafx.h"
 #include "window.h"
-#include "../ScrambleText/scrambleText.h"
 
 Window::Window(const unsigned int width, const unsigned int height, const char* title, sf::Uint32 style)
-	: _m_keyBindings {
-		{ sf::Keyboard::Enter, []() { ScrambleText::getInstance().generateScramble(); } }, { sf::Keyboard::Num2, []() { ScrambleText::getInstance().setPuzzle(TWO_BY_TWO); } },
-		{ sf::Keyboard::Num3, []() { ScrambleText::getInstance().setPuzzle(THREE_BY_THREE); } }, { sf::Keyboard::Num4, []() { ScrambleText::getInstance().setPuzzle(FOUR_BY_FOUR); } },
-		{ sf::Keyboard::Num5, []() { ScrambleText::getInstance().setPuzzle(FIVE_BY_FIVE); } }, { sf::Keyboard::Num6, []() { ScrambleText::getInstance().setPuzzle(SIX_BY_SIX); } },
-		{ sf::Keyboard::Num7, []() { ScrambleText::getInstance().setPuzzle(SEVEN_BY_SEVEN); } }, { sf::Keyboard::S, []() { ScrambleText::getInstance().setPuzzle(SKEWB); } },
-		{ sf::Keyboard::P, []() { ScrambleText::getInstance().setPuzzle(PYRAMINX); } }, { sf::Keyboard::M, []() { ScrambleText::getInstance().setPuzzle(MEGAMINX); } },
-		{ sf::Keyboard::C, []() { ScrambleText::getInstance().setPuzzle(CLOCK); } }
+	: _m_keyBindings{
+		{ sf::Keyboard::Enter, [this]() { _m_scrambleText.generateScramble(); } }, { sf::Keyboard::Num2, [this]() { _m_scrambleText.setPuzzle(TWO_BY_TWO); } },
+		{ sf::Keyboard::Num3, [this]() { _m_scrambleText.setPuzzle(THREE_BY_THREE); } }, { sf::Keyboard::Num4, [this]() { _m_scrambleText.setPuzzle(FOUR_BY_FOUR); } },
+		{ sf::Keyboard::Num5, [this]() { _m_scrambleText.setPuzzle(FIVE_BY_FIVE); } }, { sf::Keyboard::Num6, [this]() { _m_scrambleText.setPuzzle(SIX_BY_SIX); } },
+		{ sf::Keyboard::Num7, [this]() { _m_scrambleText.setPuzzle(SEVEN_BY_SEVEN); } }, { sf::Keyboard::S, [this]() { _m_scrambleText.setPuzzle(SKEWB); } },
+		{ sf::Keyboard::P, [this]() { _m_scrambleText.setPuzzle(PYRAMINX); } }, { sf::Keyboard::M, [this]() { _m_scrambleText.setPuzzle(PYRAMINX); } },
+		{ sf::Keyboard::C, [this]() { _m_scrambleText.setPuzzle(CLOCK); } }
 		}
 {
 	this->create(sf::VideoMode(width, height), title, style);
@@ -38,7 +37,7 @@ void Window::_eventHandler()
 		}
 
 		this->clear(sf::Color(53, 54, 58));
-		this->draw(ScrambleText::getInstance());
+		this->draw(_m_scrambleText);
 		this->display();
 	}
 }

@@ -1,3 +1,5 @@
 #pragma once
 
-char** allocator(const unsigned int modifiers, const unsigned int scrambleLength);
+#include "../Scramble_Info/scrambleInfo.h"
+
+char** allocator(const PuzzleInfo* info);

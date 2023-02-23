@@ -8,12 +8,11 @@ extern "C"
 class ScrambleText : public sf::Text
 {
 public:
-	static ScrambleText& getInstance();
+	ScrambleText();
 	void setPuzzle(Puzzle puzzle);
 	void generateScramble();
 
 private:
-	ScrambleText();
 	void _setScramble(char** scramble);
 
 	ScrambleText(const ScrambleText&) = delete;

@@ -50,7 +50,7 @@ char** genScramble(const Puzzle puzzle)
 
 	genScrambleLengths(&puzzleInfo[i]);
 
-	scramble = allocator(puzzleInfo[i].modifiers, puzzleInfo[i].scrambleLength);
+	scramble = allocator(&puzzleInfo[i]);
 
 	if (!scramble) return NULL;
 

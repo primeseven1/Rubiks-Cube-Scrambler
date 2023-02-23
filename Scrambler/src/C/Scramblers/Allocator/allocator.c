@@ -1,15 +1,16 @@
 #include <stdlib.h>
 #include <string.h>
+#include "allocator.h"
 
-char** allocator(const unsigned int modifiers, const unsigned int scrambleLength)
+char** allocator(const PuzzleInfo* info)
 {
 	// The +1 is for NULL characters so that the nxnFreeScramble function knows when to stop
-	char** scramble = (char**)malloc((scrambleLength + 1) * sizeof(char*));
+	char** scramble = (char**)malloc((info->scrambleLength + 1) * sizeof(char*));
 	if (!scramble) return NULL;
 	
-	for (unsigned int i = 0; i < scrambleLength + 1; i++)
+	for (unsigned int i = 0; i < info->scrambleLength + 1; i++)
 	{
-		scramble[i] = (char*)malloc(modifiers + 1 * sizeof(char));
+		scramble[i] = (char*)malloc(info->modifiers + 1 * sizeof(char));
 
 		if (!scramble[i])
 		{
@@ -19,6 +20,6 @@ char** allocator(const unsigned int modifiers, const unsigned int scrambleLength
 		}
 	}
 
-	memset(scramble[scrambleLength], 0, modifiers + 1);
+	memset(scramble[info->scrambleLength], 0, info->modifiers + 1);
 	return scramble;
 }
