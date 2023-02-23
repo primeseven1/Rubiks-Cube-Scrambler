@@ -13,7 +13,7 @@ void genThreeScramble(char** scramble, const PuzzleInfo* info)
 	if (info->puzzle != THREE_BY_THREE && info->puzzle != TWO_BY_TWO ||
 		info->modifiers != THREE_BY_THREE_MODIFIERS && info->modifiers != TWO_BY_TWO_MODIFIERS) wrongFunctionCall(__func__);;
 
-	int twoByTwo = info->scrambleLength < 15 ? 1 : 0;
+	int twoByTwo = info->puzzle == TWO_BY_TWO ? 1 : 0;
 
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{

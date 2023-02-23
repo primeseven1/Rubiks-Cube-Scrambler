@@ -13,7 +13,7 @@ void genFiveScramble(char** scramble, const PuzzleInfo* info)
 	if (info->puzzle != FIVE_BY_FIVE && info->puzzle != FOUR_BY_FOUR ||
 		info->modifiers != FIVE_BY_FIVE_MODIFIERS && info->modifiers != FOUR_BY_FOUR_MODIFIERS) wrongFunctionCall(__func__);;
 
-	int fourByFour = info->scrambleLength < 50 ? 1 : 0;
+	int fourByFour = info->puzzle == FOUR_BY_FOUR ? 1 : 0;
 
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
