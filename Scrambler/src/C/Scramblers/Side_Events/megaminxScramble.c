@@ -3,12 +3,12 @@
 
 static const char modifiers[] = { '+', '-' };
 
-void genMegaminxScramble(char** scramble, const unsigned int scrambleLength)
+void genMegaminxScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != MEGAMINX) return;
 
 	// No need for a valid function
-	for (unsigned int i = 0; i < scrambleLength; i++)
+	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
 		if (i % 11 == 0 && i)
 		{

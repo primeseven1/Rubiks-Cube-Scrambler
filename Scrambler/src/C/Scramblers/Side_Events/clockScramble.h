@@ -1,3 +1,5 @@
 #pragma once
 
-void genClockScramble(char** scramble, const unsigned int scrambleLength);
+#include "../Scramble_Info/scrambleInfo.h"
+
+void genClockScramble(char** scramble, const PuzzleInfo* info);

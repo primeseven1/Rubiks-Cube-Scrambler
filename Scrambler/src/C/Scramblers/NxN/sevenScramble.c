@@ -5,13 +5,13 @@
 static const char moves[] = { 'U', 'R', 'F', 'D', 'L', 'B' };
 static const char modifiers[] = { '\'', '2', ' '};
 
-void genSevenScramble(char** scramble, const unsigned int scrambleLength)
+void genSevenScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != SEVEN_BY_SEVEN && info->puzzle != SIX_BY_SIX) return;
 
-	int sixBySix = scrambleLength < 90 ? 1 : 0;
+	int sixBySix = info->scrambleLength < 90 ? 1 : 0;
 
-	for (unsigned int i = 0; i < scrambleLength; i++)
+	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
 		scramble[i][0] = rand() % 3 == 0 ? '3' : ' ';
 		scramble[i][2] = scramble[i][0] == '3' ? 'w' : rand() % 2 == 0 ? 'w' : ' ';

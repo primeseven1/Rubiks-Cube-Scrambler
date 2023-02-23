@@ -5,13 +5,13 @@
 static const char moves[] = { 'U', 'R', ' F', 'D', 'L', 'B' };
 static const char modifiers[] = { '\'', '2', ' ' };
 
-void genFiveScramble(char** scramble, const unsigned int scrambleLength)
+void genFiveScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != FIVE_BY_FIVE && info->puzzle != FOUR_BY_FOUR) return;
 
-	int fourByFour = scrambleLength < 50 ? 1 : 0;
+	int fourByFour = info->scrambleLength < 50 ? 1 : 0;
 
-	for (unsigned int i = 0; i < scrambleLength; i++)
+	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
 		// Whether there is a wide move or not generates first determines if there is a D, L or B move before it, this only applies to 4x4 scrambles
 		scramble[i][1] = rand() % 2 ? 'w' : ' ';

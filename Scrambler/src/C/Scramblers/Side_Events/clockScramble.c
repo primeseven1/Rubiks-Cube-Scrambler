@@ -8,9 +8,9 @@ static const char numOfTurns[] = {'0', '1', '2', '3', '4', '5', '6'};
 static const char clockwiseOrCounter[] = { '+', '-' };
 static const char pins[][2] = { { 'U', 'R' }, { 'D', 'R' }, { 'D', 'L' }, { 'U', 'L' } };
 
-void genClockScramble(char** scramble, const unsigned int scrambleLength)
+void genClockScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != CLOCK || info->scrambleLength != CLOCK_LENGTH) return;
 
 	// Generate first four moves
 	unsigned int i = 0;

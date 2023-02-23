@@ -1,5 +1,7 @@
 #pragma once
 
+#include "../Scramble_Info/scrambleInfo.h"
+
 #define genSixScramble genSevenScramble
 
-void genSevenScramble(char** scramble, const unsigned int scrambleLength);
+void genSevenScramble(char** scramble, const PuzzleInfo* info);

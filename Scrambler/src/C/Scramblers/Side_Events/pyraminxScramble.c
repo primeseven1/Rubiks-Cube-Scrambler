@@ -6,22 +6,22 @@ static const char moves[] = { 'U', 'R', 'L', 'B' };
 static const char modifiers[] = { ' ', '\'' };
 static const char pyraminxTips[] = { 'u', 'r', 'l', 'b' };
 
-void genPyraminxScramble(char** scramble, const unsigned int scrambleLength)
+void genPyraminxScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != PYRAMINX) return;
 
 	unsigned int i = 0;
-	while (i < scrambleLength - 4)
+	for ( ; i < info->scrambleLength - 4; i++)
 	{
 		scramble[i][0] = moves[rand() % sizeof(moves)];
 		scramble[i][1] = modifiers[rand() % sizeof(modifiers)];
 
 		if (!valid(scramble, i, 0)) i--;
-		i++;
 	}
 
-	for (unsigned int j = i, k = 0; j < scrambleLength; j++, k++)
+	for (unsigned int j = i, k = 0; j < info->scrambleLength; j++, k++)
 	{
+		// 50/50 chance a modifier will be selected
 		if (rand() % 2 == 0)
 		{
 			scramble[j][0] = pyraminxTips[k]; 

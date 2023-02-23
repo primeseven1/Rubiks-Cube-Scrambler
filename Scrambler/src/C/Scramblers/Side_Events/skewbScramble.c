@@ -5,11 +5,11 @@
 static const char moves[] = { 'U', 'R', 'L', 'B' };
 static const char modifiers[] = { ' ', '\'' };
 
-void genSkewbScramble(char** scramble, const unsigned int scrambleLength)
+void genSkewbScramble(char** scramble, const PuzzleInfo* info)
 {
-	if (!scramble) return;
+	if (!scramble || info->puzzle != SKEWB) return;
 
-	for (unsigned int i = 0; i < scrambleLength; i++)
+	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
 		scramble[i][0] = moves[rand() % sizeof(moves)];
 		scramble[i][1] = modifiers[rand() % sizeof(modifiers)];

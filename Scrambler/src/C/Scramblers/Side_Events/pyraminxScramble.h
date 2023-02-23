@@ -1,3 +1,5 @@
 #pragma once
 
-void genPyraminxScramble(char** scramble, const unsigned int scrambleLength);
+#include "../Scramble_Info/scrambleInfo.h"
+
+void genPyraminxScramble(char** scramble, const PuzzleInfo* info);

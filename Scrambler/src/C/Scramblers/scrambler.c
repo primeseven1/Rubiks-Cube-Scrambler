@@ -54,7 +54,7 @@ char** genScramble(const Puzzle puzzle)
 
 	if (!scramble) return NULL;
 
-	puzzleInfo[i].scrambleFunctionPtr(scramble, puzzleInfo[i].scrambleLength);
+	puzzleInfo[i].scrambleFunctionPtr(scramble, &puzzleInfo[i]);
 
 	return scramble;
 }

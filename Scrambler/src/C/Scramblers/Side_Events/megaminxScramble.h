@@ -1,3 +1,5 @@
 #pragma once
 
-void genMegaminxScramble(char** scramble, const unsigned int scrambleLength);
+#include "../Scramble_Info/scrambleInfo.h"
+
+void genMegaminxScramble(char** scramble, const PuzzleInfo* info);
