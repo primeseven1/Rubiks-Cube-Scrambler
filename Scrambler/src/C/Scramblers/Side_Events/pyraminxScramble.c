@@ -9,8 +9,8 @@ static const char pyraminxTips[] = { 'u', 'r', 'l', 'b' };
 void genPyraminxScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
-	if (!scramble || info->puzzle != PYRAMINX ||
-		info->modifiers != PYRAMINX_MODIFIERS) return;
+	if (!scramble) return;
+	if (info->puzzle != PYRAMINX || info->modifiers != PYRAMINX_MODIFIERS) wrongFunctionCall(__func__);;
 
 	unsigned int i = 0;
 	for ( ; i < info->scrambleLength - 4; i++)

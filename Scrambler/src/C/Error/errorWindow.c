@@ -3,9 +3,9 @@
 
 void loadFileError(LPCSTR filePath)
 {
-	char error1[] = "There was an error loading file:\n\n";
+	const char error1[] = "There was an error loading file:\n\n";
 
-	char* fullError = malloc(strlen(filePath) + strlen(error1) + 1);
+	char* fullError = (char*)malloc(strlen(filePath) + strlen(error1) + 1);
 
 	if (!fullError) exit(-2);
 

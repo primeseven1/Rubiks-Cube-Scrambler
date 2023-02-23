@@ -1,5 +1,6 @@
 #pragma once
 #include "../scrambler.h"
+#include "../../Error/Debugging/debugErrorWindow.h"
 
 typedef struct Info PuzzleInfo;
 

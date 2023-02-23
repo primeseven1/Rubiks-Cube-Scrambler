@@ -9,8 +9,9 @@ void genThreeScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
 	// Yes... there is redundant code since the 3x3 modifiers are the same as the 2x2 modifiers, but it makes it more readable since it can generate 2x2 scrambles too
-	if (!scramble || info->puzzle != THREE_BY_THREE && info->puzzle != TWO_BY_TWO ||
-		info->modifiers != THREE_BY_THREE_MODIFIERS && info->modifiers != TWO_BY_TWO_MODIFIERS) return;
+	if (!scramble) return;
+	if (info->puzzle != THREE_BY_THREE && info->puzzle != TWO_BY_TWO ||
+		info->modifiers != THREE_BY_THREE_MODIFIERS && info->modifiers != TWO_BY_TWO_MODIFIERS) wrongFunctionCall(__func__);;
 
 	int twoByTwo = info->scrambleLength < 15 ? 1 : 0;
 
