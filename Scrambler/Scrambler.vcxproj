@@ -183,11 +183,21 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">../../Precompiled_Headers/stdafx.h</PrecompiledHeaderFile>
     </ClCompile>
+    <ClCompile Include="src\C\Error\Debugging\debugErrorWindow.c" />
     <ClCompile Include="src\C\Error\errorWindow.c" />
     <ClCompile Include="src\C\Scramblers\Allocator\allocator.c" />
     <ClCompile Include="src\C\Scramblers\NxN\fiveScramble.c" />
-    <ClCompile Include="src\C\Scramblers\scrambler.c" />
+    <ClCompile Include="src\C\Scramblers\NxN\sevenScramble.c" />
+    <ClCompile Include="src\C\Scramblers\scrambler.c">
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">stdafx.h</PrecompiledHeaderFile>
+      <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Release|x64'">stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
     <ClCompile Include="src\C\Scramblers\NxN\threeScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Scramble_Info\scrambleInfo.c" />
+    <ClCompile Include="src\C\Scramblers\Side_Events\clockScramble.c" />
+    <ClCompile Include="src\C\Scramblers\Side_Events\megaminxScramble.c" />
     <ClCompile Include="src\C\Scramblers\Side_Events\pyraminxScramble.c" />
     <ClCompile Include="src\C\Scramblers\Side_Events\skewbScramble.c" />
     <ClCompile Include="src\C\Scramblers\Valid\valid.c" />
@@ -211,15 +221,21 @@
   <ItemGroup>
     <ClInclude Include="src\C++\ScrambleText\scrambleText.h" />
     <ClInclude Include="src\C++\Window\window.h" />
+    <ClInclude Include="src\C\Error\Debugging\debugErrorWindow.h" />
     <ClInclude Include="src\C\Error\errorWindow.h" />
     <ClInclude Include="src\C\Scramblers\Allocator\allocator.h" />
     <ClInclude Include="src\C\Scramblers\NxN\fiveScramble.h" />
+    <ClInclude Include="src\C\Scramblers\NxN\sevenScramble.h" />
     <ClInclude Include="src\C\Scramblers\scrambler.h" />
     <ClInclude Include="src\C\Scramblers\NxN\threeScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Scramble_Info\scrambleInfo.h" />
+    <ClInclude Include="src\C\Scramblers\Side_Events\clockScramble.h" />
+    <ClInclude Include="src\C\Scramblers\Side_Events\megaminxScramble.h" />
     <ClInclude Include="src\C\Scramblers\Side_Events\pyraminxScramble.h" />
     <ClInclude Include="src\C\Scramblers\Side_Events\skewbScramble.h" />
     <ClInclude Include="src\C\Scramblers\Valid\valid.h" />
     <ClInclude Include="src\Precompiled_Headers\stdafx.h" />
+    <ClInclude Include="src\C\Scramblers\scrambleInfo.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="Fonts\arial.ttf" />

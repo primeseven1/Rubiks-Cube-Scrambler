@@ -51,6 +51,21 @@
     <ClCompile Include="src\C\Scramblers\Side_Events\pyraminxScramble.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Side_Events\megaminxScramble.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\NxN\sevenScramble.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Scramble_Info\scrambleInfo.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Scramblers\Side_Events\clockScramble.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\C\Error\Debugging\debugErrorWindow.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Precompiled_Headers\stdafx.h">
@@ -84,6 +99,24 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\C\Scramblers\Side_Events\pyraminxScramble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Side_Events\megaminxScramble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\NxN\sevenScramble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\scrambleInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Scramble_Info\scrambleInfo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramblers\Side_Events\clockScramble.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Error\Debugging\debugErrorWindow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
