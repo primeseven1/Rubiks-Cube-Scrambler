@@ -13,7 +13,7 @@ public:
 	void generateScramble();
 
 private:
-	void _setScramble(char** scramble);
+	void setScramble(char** scramble);
 
 	std::string _m_scramble;
 	sf::Font _m_font;
