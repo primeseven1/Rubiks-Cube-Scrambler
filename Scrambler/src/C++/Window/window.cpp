@@ -13,10 +13,10 @@ Window::Window(const unsigned int width, const unsigned int height, const char* 
 {
 	this->create(sf::VideoMode(width, height), title, style);
 	this->setFramerateLimit(30); // Reduces CPU usage by a lot
-	this->_eventHandler();
+	this->eventHandler();
 }
 
-void Window::_eventHandler()
+void Window::eventHandler()
 {
 	while (this->isOpen())
 	{
