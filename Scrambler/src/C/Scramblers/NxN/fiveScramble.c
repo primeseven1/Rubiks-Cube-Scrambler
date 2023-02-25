@@ -5,6 +5,24 @@
 static const char moves[] = { 'U', 'R', ' F', 'D', 'L', 'B' };
 static const char modifiers[] = { '\'', '2', ' ' };
 
+// 4x4 scrambles will have a slightly different valid function
+static int fourScrambleValid(char** scramble, const unsigned int i)
+{
+	// This function also knows what indexes to check as well since it's a 4x4 scramble
+	if (i && scramble[i - 1][0] == scramble[i][0]) return 0;
+
+	// It checks the first 20 moves for any wide moves, and then if there is any, it will force it to try again
+	if (i < 20 && scramble[i][1] == 'w') return 0;
+
+	// Checking if the move is the same as the previous, and if it is, it checks to see if the last move is opposite of the current move
+	if (i > 1 && scramble[i][0] == scramble[i][0])
+		if ((scramble[i][0] == 'U' && scramble[i - 1][0] == 'D') || (scramble[i][0] == 'D' && scramble[i - 1][0] == 'U') ||
+			(scramble[i][0] == 'R' && scramble[i - 1][0] == 'L') || (scramble[i][0] == 'L' && scramble[i - 1][0] == 'R') ||
+			(scramble[i][0] == 'F' && scramble[i - 1][0] == 'B') || (scramble[i][0] == 'B' && scramble[i - 1][0] == 'F')) return 0;
+
+	return 1;
+}
+
 void genFiveScramble(char** scramble, const PuzzleInfo* info)
 {
 	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
@@ -26,6 +44,8 @@ void genFiveScramble(char** scramble, const PuzzleInfo* info)
 		scramble[i][0] = moves[scramble[i][1] == 'w' && fourByFour ? rand() % sizeof(moves) / 2 : rand() % sizeof(moves)];
 		scramble[i][2] = modifiers[rand() % sizeof(modifiers)];
 
-		if (!valid(scramble, i, 0)) i--;
+		// If it's 5x5, it can use the normal valid function
+		if (fourByFour) { if (!fourScrambleValid(scramble, i)) i--; }
+		else if (!valid(scramble, i, 0)) i--;
 	}
 }
