@@ -2,7 +2,7 @@
 #include <string.h>
 #include "allocator.h"
 
-char** allocator(const PuzzleInfo* info)
+char** allocator(const struct PuzzleInfo* info)
 {
 	// The +1 is for NULL characters so that the freeScramble function knows when to stop
 	char** scramble = (char**)malloc((info->scrambleLength + 1) * sizeof(char*));

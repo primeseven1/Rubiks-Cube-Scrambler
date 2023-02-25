@@ -2,4 +2,4 @@
 
 #include "../Scramble_Info/scrambleInfo.h"
 
-void genSkewbScramble(char** scramble, const PuzzleInfo* info);
+void genSkewbScramble(char** scramble, const struct PuzzleInfo* info);

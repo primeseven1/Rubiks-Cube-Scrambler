@@ -50,7 +50,7 @@ void ScrambleText::setScramble(char** scramble)
 	{
 		unsigned int j = 0;
 		for ( ; j < modifiers; j++) if (scramble[i][j] != ' ') _m_scramble += scramble[i][j];
-		scramble[i][0] == ' ' ? _m_scramble += "" : _m_scramble += " ";
+		_m_scramble += " ";
 
 		// This makes sure that the scramble stays on the screen, this only needs to happen if it's bigger than 3x3
 		if (_m_puzzle > THREE_BY_THREE && i % 20 == 0 && i) _m_scramble += "\n";

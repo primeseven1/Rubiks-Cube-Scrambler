@@ -3,7 +3,7 @@
 
 static const char modifiers[] = { '+', '-' };
 
-void genMegaminxScramble(char** scramble, const PuzzleInfo* info)
+void genMegaminxScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;

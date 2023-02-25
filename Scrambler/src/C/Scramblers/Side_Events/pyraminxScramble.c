@@ -6,7 +6,7 @@ static const char moves[] = { 'U', 'R', 'L', 'B' };
 static const char modifiers[] = { ' ', '\'' };
 static const char pyraminxTips[] = { 'u', 'r', 'l', 'b' };
 
-void genPyraminxScramble(char** scramble, const PuzzleInfo* info)
+void genPyraminxScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;

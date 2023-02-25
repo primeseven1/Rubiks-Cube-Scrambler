@@ -23,7 +23,7 @@ static int fourScrambleValid(char** scramble, const unsigned int i)
 	return 1;
 }
 
-void genFiveScramble(char** scramble, const PuzzleInfo* info)
+void genFiveScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
 	// Yes... there is redundant code since the 4x4 modifiers are the same as the 5x5 modifiers, but it makes it more readable since it can generate 4x4 scrambles too

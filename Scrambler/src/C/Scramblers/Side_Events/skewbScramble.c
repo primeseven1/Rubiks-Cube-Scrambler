@@ -5,7 +5,7 @@
 static const char moves[] = { 'U', 'R', 'L', 'B' };
 static const char modifiers[] = { ' ', '\'' };
 
-void genSkewbScramble(char** scramble, const PuzzleInfo* info)
+void genSkewbScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
 	if (!scramble) return;

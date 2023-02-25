@@ -2,4 +2,4 @@
 
 #include "../Scramble_Info/scrambleInfo.h"
 
-void genPyraminxScramble(char** scramble, const PuzzleInfo* info);
+void genPyraminxScramble(char** scramble, const struct PuzzleInfo* info);

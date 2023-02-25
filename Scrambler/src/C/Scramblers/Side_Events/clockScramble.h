@@ -2,4 +2,4 @@
 
 #include "../Scramble_Info/scrambleInfo.h"
 
-void genClockScramble(char** scramble, const PuzzleInfo* info);
+void genClockScramble(char** scramble, const struct PuzzleInfo* info);

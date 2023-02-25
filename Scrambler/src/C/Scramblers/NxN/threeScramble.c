@@ -5,7 +5,7 @@
 static const char moves[] = { 'U', 'R', 'F', 'D', 'L', 'B' };
 static const char modifiers[] = { '\'', '2', ' ' };
 
-void genThreeScramble(char** scramble, const PuzzleInfo* info)
+void genThreeScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
 	// Yes... there is redundant code since the 3x3 modifiers are the same as the 2x2 modifiers, but it makes it more readable since it can generate 2x2 scrambles too

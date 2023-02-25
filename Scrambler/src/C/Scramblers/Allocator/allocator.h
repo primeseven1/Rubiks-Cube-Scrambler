@@ -2,4 +2,4 @@
 
 #include "../Scramble_Info/scrambleInfo.h"
 
-char** allocator(const PuzzleInfo* info);
+char** allocator(const struct PuzzleInfo* info);

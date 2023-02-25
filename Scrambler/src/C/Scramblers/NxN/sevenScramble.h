@@ -4,4 +4,4 @@
 
 #define genSixScramble genSevenScramble
 
-void genSevenScramble(char** scramble, const PuzzleInfo* info);
+void genSevenScramble(char** scramble, const struct PuzzleInfo* info);

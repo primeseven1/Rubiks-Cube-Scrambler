@@ -12,7 +12,7 @@ static unsigned int scrambleLengths[][3] = {
 	{ PYRAMINX, PYRAMINX_MIN, PYRAMINX_MAX },
 };
 
-void genScrambleLengths(PuzzleInfo* info)
+void genScrambleLengths(struct PuzzleInfo* info)
 {
 	// Megaminx scramble lengths are always the same
 	if (info->puzzle == MEGAMINX || info->puzzle == CLOCK) return;
