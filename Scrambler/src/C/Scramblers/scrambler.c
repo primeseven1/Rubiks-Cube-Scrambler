@@ -30,6 +30,7 @@ void freeScramble(char** scramble)
 	free(scramble);
 }
 
+// Puzzle Info with the appropriate function calls for scrambling
 static struct PuzzleInfo puzzleInfo[] = {
 	{.puzzle = THREE_BY_THREE, .modifiers = THREE_BY_THREE_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genThreeScramble },
 	{.puzzle = TWO_BY_TWO, .modifiers = TWO_BY_TWO_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genTwoScramble },

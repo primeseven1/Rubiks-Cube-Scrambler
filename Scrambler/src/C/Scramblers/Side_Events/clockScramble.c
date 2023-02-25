@@ -9,6 +9,7 @@ static const char numOfTurns[] = {'0', '1', '2', '3', '4', '5', '6'};
 static const char clockwiseOrCounter[] = { '+', '-' };
 static const char pins[][2] = { { 'U', 'R' }, { 'D', 'R' }, { 'D', 'L' }, { 'U', 'L' } };
 
+// I hate this code
 void genClockScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Preventing memory access violations or undefined behavior
