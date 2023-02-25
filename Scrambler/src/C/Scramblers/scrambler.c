@@ -10,6 +10,8 @@
 #include "./Scramble_Info/scrambleInfo.h"
 #include "scrambler.h"
 
+#define FIFTY_FIFTY rand() % 2
+
 void freeScramble(char** scramble)
 {
 	if (!scramble) return;

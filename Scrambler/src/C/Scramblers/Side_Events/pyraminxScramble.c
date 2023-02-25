@@ -27,7 +27,6 @@ void genPyraminxScramble(char** scramble, const PuzzleInfo* info)
 
 	for (unsigned int j = i, k = 0; j < info->scrambleLength; j++, k++)
 	{
-		// 50/50 chance a modifier will be selected
 		if (rand() % 2 == 0)
 		{
 			scramble[j][0] = pyraminxTips[k]; 

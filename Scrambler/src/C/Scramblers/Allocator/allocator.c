@@ -4,7 +4,7 @@
 
 char** allocator(const PuzzleInfo* info)
 {
-	// The +1 is for NULL characters so that the nxnFreeScramble function knows when to stop
+	// The +1 is for NULL characters so that the freeScramble function knows when to stop
 	char** scramble = (char**)malloc((info->scrambleLength + 1) * sizeof(char*));
 	if (!scramble) return NULL;
 	
@@ -20,6 +20,7 @@ char** allocator(const PuzzleInfo* info)
 		}
 	}
 
+	// Here is where the last element is set to null characters
 	memset(scramble[info->scrambleLength], 0, info->modifiers + 1);
 	return scramble;
 }

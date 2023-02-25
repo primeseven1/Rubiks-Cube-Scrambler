@@ -1,4 +1,5 @@
 #pragma once
+
 #include "../scrambler.h"
 #include "../../Error/Debugging/debugErrorWindow.h"
 
