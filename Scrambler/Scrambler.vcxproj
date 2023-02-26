@@ -201,6 +201,7 @@
     <ClCompile Include="src\C\Scramblers\Side_Events\pyraminxScramble.c" />
     <ClCompile Include="src\C\Scramblers\Side_Events\skewbScramble.c" />
     <ClCompile Include="src\C\Scramblers\Valid\valid.c" />
+    <ClCompile Include="src\C\Scramble_Images\twoByTwoImage.c" />
     <ClCompile Include="src\main.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Use</PrecompiledHeader>
       <PrecompiledHeaderFile Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Precompiled_Headers/stdafx.h</PrecompiledHeaderFile>
@@ -234,6 +235,7 @@
     <ClInclude Include="src\C\Scramblers\Side_Events\pyraminxScramble.h" />
     <ClInclude Include="src\C\Scramblers\Side_Events\skewbScramble.h" />
     <ClInclude Include="src\C\Scramblers\Valid\valid.h" />
+    <ClInclude Include="src\C\Scramble_Images\twoByTwoImage.h" />
     <ClInclude Include="src\Precompiled_Headers\stdafx.h" />
     <ClInclude Include="src\C\Scramblers\scrambleInfo.h" />
   </ItemGroup>

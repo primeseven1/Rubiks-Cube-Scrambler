@@ -66,6 +66,9 @@
     <ClCompile Include="src\C\Error\Debugging\debugErrorWindow.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\C\Scramble_Images\twoByTwoImage.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\Precompiled_Headers\stdafx.h">
@@ -117,6 +120,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\C\Error\Debugging\debugErrorWindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\C\Scramble_Images\twoByTwoImage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

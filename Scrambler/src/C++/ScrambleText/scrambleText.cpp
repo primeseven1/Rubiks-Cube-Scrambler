@@ -39,8 +39,8 @@ void ScrambleText::generateScramble()
 
 void ScrambleText::setScramble(char** scramble)
 {
-	// The +1 includes the move that's not a modifer, since that needs to be displayed too
-	unsigned int modifiers = _m_puzzle < FOUR_BY_FOUR ? 1 + 1 : _m_puzzle < SIX_BY_SIX ? 2 + 1 : 3 + 1;
+	// How many elements are in the 2d array based on the puzzle
+	unsigned int elements = _m_puzzle < FOUR_BY_FOUR ? 2 : _m_puzzle < SIX_BY_SIX ? 3 : 4;
 	_m_scramble.clear();
 
 	if (!scramble) return;
@@ -49,7 +49,7 @@ void ScrambleText::setScramble(char** scramble)
 	while (scramble[i][0] != '\0')
 	{
 		unsigned int j = 0;
-		for ( ; j < modifiers; j++) if (scramble[i][j] != ' ') _m_scramble += scramble[i][j];
+		for ( ; j < elements; j++) if (scramble[i][j] != ' ') _m_scramble += scramble[i][j];
 		_m_scramble += " ";
 
 		// This makes sure that the scramble stays on the screen, this only needs to happen if it's bigger than 3x3

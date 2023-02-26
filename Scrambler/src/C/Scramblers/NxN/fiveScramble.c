@@ -27,7 +27,7 @@ void genFiveScramble(char** scramble, const struct PuzzleInfo* info)
 {
 	// Prevents memory access violations or undefined behavior if the wrong modifiers are passed in
 	// Yes... there is redundant code since the 4x4 modifiers are the same as the 5x5 modifiers, but it makes it more readable since it can generate 4x4 scrambles too
-	if (!scramble) return;	
+	if (!scramble) return 0;
 	if (info->puzzle != FIVE_BY_FIVE && info->puzzle != FOUR_BY_FOUR ||
 		info->modifiers != FIVE_BY_FIVE_MODIFIERS && info->modifiers != FOUR_BY_FOUR_MODIFIERS) 
 	{

@@ -9,6 +9,7 @@ void loadFileError(LPCSTR filePath)
 
 	if (!fullError) exit(-2);
 
+	// Adds the file to the error information
 	strcpy_s(fullError, strlen(error1) + 1, error1);
 	strcat_s(fullError, strlen(fullError) + strlen(filePath) + 1, filePath);
 
