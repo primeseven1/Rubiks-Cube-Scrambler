@@ -17,10 +17,13 @@ char** allocator(const struct PuzzleInfo* info)
 	{
 		scramble[i] = (char*)malloc(info->modifiers + 1 * sizeof(char));
 
+		// If something goes wrong it frees the memory
 		if (!scramble[i])
 		{
 			for (unsigned int j = 0; j < i; j++) free(scramble[j]);
 			free(scramble);
+
+			mallocFailure(__func__, "scramble[index]");
 			return NULL;
 		}
 	}

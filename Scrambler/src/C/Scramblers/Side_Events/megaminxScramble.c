@@ -16,6 +16,7 @@ void genMegaminxScramble(char** scramble, const struct PuzzleInfo* info)
 	// No need for a valid function
 	for (unsigned int i = 0; i < info->scrambleLength; i++)
 	{
+		// Every 11 moves it generates a U move
 		if (i % 11 == 0 && i)
 		{
 			scramble[i][0] = 'U';
