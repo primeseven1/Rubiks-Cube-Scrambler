@@ -8,7 +8,7 @@ struct PuzzleInfo
 	const Puzzle puzzle;
 	const unsigned int modifiers;
 	unsigned int scrambleLength;
-	void (* const scrambleFunctionPtr)(char** scramblePtr, struct Info* info);
+	void (* const scrambleFunctionPtr)(char** scramblePtr, struct PuzzleInfo* info);
 };
 
 void genScrambleLengths(struct PuzzleInfo* info);
