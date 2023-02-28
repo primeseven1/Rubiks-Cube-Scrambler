@@ -22,37 +22,22 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef SFML_SFML_WINDOW_HPP
-#define SFML_SFML_WINDOW_HPP
+#ifndef SFML_MAIN_HPP
+#define SFML_MAIN_HPP
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
-
-#include <SFML/System.hpp>
-#include <SFML/Window/Clipboard.hpp>
-#include <SFML/Window/Context.hpp>
-#include <SFML/Window/ContextSettings.hpp>
-#include <SFML/Window/Cursor.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/Joystick.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Mouse.hpp>
-#include <SFML/Window/Sensor.hpp>
-#include <SFML/Window/Touch.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/WindowHandle.hpp>
-#include <SFML/Window/WindowStyle.hpp>
+#include <SFML/Config.hpp>
 
 
+#if defined(SFML_SYSTEM_IOS)
 
-#endif // SFML_SFML_WINDOW_HPP
+    // On iOS, we have no choice but to have our own main,
+    // so we need to rename the user one and call it later
+    #define main sfmlMain
 
-////////////////////////////////////////////////////////////
-/// \defgroup window Window module
-///
-/// Provides OpenGL-based windows, and abstractions for
-/// events and input handling.
-///
-////////////////////////////////////////////////////////////
+#endif
+
+
+#endif // SFML_MAIN_HPP

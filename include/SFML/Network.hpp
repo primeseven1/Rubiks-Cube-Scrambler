@@ -22,37 +22,32 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef SFML_SFML_WINDOW_HPP
-#define SFML_SFML_WINDOW_HPP
+#ifndef SFML_NETWORK_HPP
+#define SFML_NETWORK_HPP
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
 
 #include <SFML/System.hpp>
-#include <SFML/Window/Clipboard.hpp>
-#include <SFML/Window/Context.hpp>
-#include <SFML/Window/ContextSettings.hpp>
-#include <SFML/Window/Cursor.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/Joystick.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Mouse.hpp>
-#include <SFML/Window/Sensor.hpp>
-#include <SFML/Window/Touch.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/WindowHandle.hpp>
-#include <SFML/Window/WindowStyle.hpp>
+#include <SFML/Network/Ftp.hpp>
+#include <SFML/Network/Http.hpp>
+#include <SFML/Network/IpAddress.hpp>
+#include <SFML/Network/Packet.hpp>
+#include <SFML/Network/Socket.hpp>
+#include <SFML/Network/SocketHandle.hpp>
+#include <SFML/Network/SocketSelector.hpp>
+#include <SFML/Network/TcpListener.hpp>
+#include <SFML/Network/TcpSocket.hpp>
+#include <SFML/Network/UdpSocket.hpp>
 
 
-
-#endif // SFML_SFML_WINDOW_HPP
+#endif // SFML_NETWORK_HPP
 
 ////////////////////////////////////////////////////////////
-/// \defgroup window Window module
+/// \defgroup network Network module
 ///
-/// Provides OpenGL-based windows, and abstractions for
-/// events and input handling.
+/// Socket-based communication, utilities and higher-level
+/// network protocols (HTTP, FTP).
 ///
 ////////////////////////////////////////////////////////////

@@ -22,37 +22,39 @@
 //
 ////////////////////////////////////////////////////////////
 
-#ifndef SFML_SFML_WINDOW_HPP
-#define SFML_SFML_WINDOW_HPP
+#ifndef SFML_SYSTEM_HPP
+#define SFML_SYSTEM_HPP
 
 ////////////////////////////////////////////////////////////
 // Headers
 ////////////////////////////////////////////////////////////
 
-#include <SFML/System.hpp>
-#include <SFML/Window/Clipboard.hpp>
-#include <SFML/Window/Context.hpp>
-#include <SFML/Window/ContextSettings.hpp>
-#include <SFML/Window/Cursor.hpp>
-#include <SFML/Window/Event.hpp>
-#include <SFML/Window/Joystick.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/Window/Mouse.hpp>
-#include <SFML/Window/Sensor.hpp>
-#include <SFML/Window/Touch.hpp>
-#include <SFML/Window/VideoMode.hpp>
-#include <SFML/Window/Window.hpp>
-#include <SFML/Window/WindowHandle.hpp>
-#include <SFML/Window/WindowStyle.hpp>
+#include <SFML/Config.hpp>
+#include <SFML/System/Clock.hpp>
+#include <SFML/System/Err.hpp>
+#include <SFML/System/FileInputStream.hpp>
+#include <SFML/System/InputStream.hpp>
+#include <SFML/System/Lock.hpp>
+#include <SFML/System/MemoryInputStream.hpp>
+#include <SFML/System/Mutex.hpp>
+#include <SFML/System/NonCopyable.hpp>
+#include <SFML/System/Sleep.hpp>
+#include <SFML/System/String.hpp>
+#include <SFML/System/Thread.hpp>
+#include <SFML/System/ThreadLocal.hpp>
+#include <SFML/System/ThreadLocalPtr.hpp>
+#include <SFML/System/Time.hpp>
+#include <SFML/System/Utf.hpp>
+#include <SFML/System/Vector2.hpp>
+#include <SFML/System/Vector3.hpp>
 
-
-
-#endif // SFML_SFML_WINDOW_HPP
+#endif // SFML_SYSTEM_HPP
 
 ////////////////////////////////////////////////////////////
-/// \defgroup window Window module
+/// \defgroup system System module
 ///
-/// Provides OpenGL-based windows, and abstractions for
-/// events and input handling.
+/// Base module of SFML, defining various utilities. It provides
+/// vector classes, Unicode strings and conversion functions,
+/// threads and mutexes, timing classes.
 ///
 ////////////////////////////////////////////////////////////
