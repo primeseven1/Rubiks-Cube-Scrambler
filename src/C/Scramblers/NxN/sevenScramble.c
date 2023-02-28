@@ -26,6 +26,6 @@ void genSevenScramble(char** scramble, const struct PuzzleInfo* info)
 		scramble[i][1] = sixBySix ? moves[rand() % sizeof(moves) / 2] : moves[rand() % sizeof(moves)];
 		scramble[i][3] = rand() % 2 == 0 ? '\'' : ' ';
 
-		if (!valid(scramble, i, 1)) i--;
+		if (!valid((const char**)scramble, i, 1)) i--;
 	}
 }

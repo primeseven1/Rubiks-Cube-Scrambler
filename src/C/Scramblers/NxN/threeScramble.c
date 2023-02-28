@@ -25,6 +25,6 @@ void genThreeScramble(char** scramble, const struct PuzzleInfo* info)
 		scramble[i][0] = moves[twoByTwo ? rand() % sizeof(moves) / 2 : rand() % sizeof(moves)];
 		scramble[i][1] = modifiers[rand() % sizeof(modifiers)];
 
-		if (!valid(scramble, i, 0)) i--;
+		if (!valid((const char**)scramble, i, 0)) i--;
 	}
 }

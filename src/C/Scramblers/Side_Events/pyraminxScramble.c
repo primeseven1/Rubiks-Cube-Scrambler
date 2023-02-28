@@ -22,7 +22,7 @@ void genPyraminxScramble(char** scramble, const struct PuzzleInfo* info)
 		scramble[i][0] = moves[rand() % sizeof(moves)];
 		scramble[i][1] = modifiers[rand() % sizeof(modifiers)];
 
-		if (!valid(scramble, i, 0)) i--;
+		if (!valid((const char**)scramble, i, 0)) i--;
 	}
 
 	for (unsigned int j = i, k = 0; j < info->scrambleLength; j++, k++)

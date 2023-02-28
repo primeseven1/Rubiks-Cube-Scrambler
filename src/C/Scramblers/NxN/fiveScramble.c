@@ -45,7 +45,7 @@ void genFiveScramble(char** scramble, const struct PuzzleInfo* info)
 		scramble[i][2] = modifiers[rand() % sizeof(modifiers)];
 
 		// If it's 5x5, it can use the normal valid function
-		if (fourByFour) { if (!fourScrambleValid(scramble, i)) i--; }
-		else if (!valid(scramble, i, 0)) i--;
+		if (fourByFour) { if (!fourScrambleValid((const char**)scramble, i)) i--; }
+		else if (!valid((const char**)scramble, i, 0)) i--;
 	}
 }
