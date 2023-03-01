@@ -8,23 +8,18 @@ LINK_DEPENDENCIES = -L../../link_dependencies/SFML -lsfml-graphics-s -lsfml-wind
 LINK_FLAGS := -O2 -o scrambler.exe
 SRC_DIR = ../../../src
 CPP_FLAGS = -DSFML_STATIC -std=c++17 -I$(INCLUDE_DIR) -include $(SRC_DIR)/Precompiled_Headers/pch.h
-OBJ_FILES = main.o window.o scrambleText.o scrambler.o valid.o skewbScramble.o pyraminxScramble.o megaminxScramble.o clockScramble.o scrambleInfo.o threeScramble.o sevenScramble.o fiveScramble.o allocator.o errorWindow.o debugErrorWindow.o
+SRCS_C := $(wildcard $(SRC_DIR)/C/**/*.c) $(wildcard $(SRC_DIR)/C/**/**/*.c)
+SRCS_CPP := $(wildcard $(SRC_DIR)/*.cpp) $(wildcard $(SRC_DIR)/**/*.cpp) $(wildcard $(SRC_DIR)/C++/**/*.cpp) 
+OBJ_C_FILES := $(patsubst %.c, %.o, $(notdir $(SRCS_C)))
+OBJ_CPP_FILES := $(patsubst %.cpp, %.o, $(notdir $(SRCS_CPP)))
 
 all: obj
-	$(LINK) $(OBJ_FILES) $(LINK_DEPENDENCIES) $(LINK_FLAGS)
+	$(LINK) $(OBJ_CPP_FILES) $(OBJ_C_FILES) $(LINK_DEPENDENCIES) $(LINK_FLAGS)
 	make clean
 
-obj:
-	$(CCPP) $(SRC_DIR)/main.cpp $(CPP_FLAGS)
-	$(CCPP) $(SRC_DIR)/C++/Window/window.cpp $(CPP_FLAGS)
-	$(CCPP) $(SRC_DIR)/C++/ScrambleText/scrambleText.cpp $(CPP_FLAGS)
-	$(CC) $(SRC_DIR)/C/Scramblers/scrambler.c
-	$(CC) $(SRC_DIR)/C/Scramblers/Valid/valid.c
-	$(CC) $(SRC_DIR)/C/Scramblers/Side_Events/clockScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/megaminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/pyraminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/skewbScramble.c
-	$(CC) $(SRC_DIR)/C/Scramblers/Scramble_Info/scrambleInfo.c
-	$(CC) $(SRC_DIR)/C/Scramblers/NxN/fiveScramble.c $(SRC_DIR)/C/Scramblers/NxN/sevenScramble.c $(SRC_DIR)/C/Scramblers/NxN/threeScramble.c
-	$(CC) $(SRC_DIR)/C/Scramblers/allocator/allocator.c
-	$(CC) $(SRC_DIR)/C/Error/errorWindow.c $(SRC_DIR)/C/Error/Debugging/DebugErrorWindow.c
+obj: 
+	$(CC) $(SRCS_C)
+	$(CCPP) $(CPP_FLAGS) $(SRCS_CPP)
 
 clean:
 	del -f *.o 
