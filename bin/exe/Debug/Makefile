@@ -1,7 +1,7 @@
 # Optimizations are disabled, using debugging versions of the SFML libraries, and not using static linking
 
-COMPILE_C := gcc -c
-COMPILE_CPP := g++ -c
+CC := gcc -c
+CCPP := g++ -c
 LINK := gcc
 INCLUDE_DIR := ../../../include
 LINK_DEPENDENCIES = -L../../link_dependencies/SFML -lsfml-system-d -lsfml-window-d -lsfml-graphics-d -lstdc++
@@ -15,16 +15,16 @@ all: obj
 	make clean
 
 obj:
-	$(COMPILE_CPP) $(SRC_DIR)/main.cpp $(CPP_FLAGS)
-	$(COMPILE_CPP) $(SRC_DIR)/C++/Window/window.cpp $(CPP_FLAGS)
-	$(COMPILE_CPP) $(SRC_DIR)/C++/ScrambleText/scrambleText.cpp $(CPP_FLAGS)
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/scrambler.c
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/Valid/valid.c
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/Side_Events/clockScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/megaminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/pyraminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/skewbScramble.c
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/Scramble_Info/scrambleInfo.c
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/NxN/fiveScramble.c $(SRC_DIR)/C/Scramblers/NxN/sevenScramble.c $(SRC_DIR)/C/Scramblers/NxN/threeScramble.c
-	$(COMPILE_C) $(SRC_DIR)/C/Scramblers/allocator/allocator.c
-	$(COMPILE_C) $(SRC_DIR)/C/Error/errorWindow.c $(SRC_DIR)/C/Error/Debugging/DebugErrorWindow.c
+	$(CCPP) $(SRC_DIR)/main.cpp $(CPP_FLAGS)
+	$(CCPP) $(SRC_DIR)/C++/Window/window.cpp $(CPP_FLAGS)
+	$(CCPP) $(SRC_DIR)/C++/ScrambleText/scrambleText.cpp $(CPP_FLAGS)
+	$(CC) $(SRC_DIR)/C/Scramblers/scrambler.c
+	$(CC) $(SRC_DIR)/C/Scramblers/Valid/valid.c
+	$(CC) $(SRC_DIR)/C/Scramblers/Side_Events/clockScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/megaminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/pyraminxScramble.c $(SRC_DIR)/C/Scramblers/Side_Events/skewbScramble.c
+	$(CC) $(SRC_DIR)/C/Scramblers/Scramble_Info/scrambleInfo.c
+	$(CC) $(SRC_DIR)/C/Scramblers/NxN/fiveScramble.c $(SRC_DIR)/C/Scramblers/NxN/sevenScramble.c $(SRC_DIR)/C/Scramblers/NxN/threeScramble.c
+	$(CC) $(SRC_DIR)/C/Scramblers/allocator/allocator.c
+	$(CC) $(SRC_DIR)/C/Error/errorWindow.c $(SRC_DIR)/C/Error/Debugging/DebugErrorWindow.c
 
 clean:
 	del -f *.o 
