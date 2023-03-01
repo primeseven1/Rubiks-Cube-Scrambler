@@ -46,6 +46,7 @@ char** genScramble(const Puzzle puzzle)
 {
 	char** scramble = NULL;
 
+	// This is just looping through the array of structs to find a match with what puzzle it is
 	unsigned int i = 0;
 	while (puzzle != puzzleInfo[i].puzzle) i++;
 

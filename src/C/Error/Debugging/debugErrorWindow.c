@@ -45,6 +45,7 @@ void mallocFailure(LPCSTR functionName, LPCSTR variableName)
 	strcat_s(fullError, strlen(fullError) + strlen(variableName) + 1, variableName);
 	strcat_s(fullError, strlen(fullError) + strlen(error3) + 1, error3);
 
+	// Since this is not a fatal error, they have the option to exit or not
 	if (MessageBoxA(NULL, fullError, "Memory Allocation Failure", MB_YESNO | MB_ICONERROR) == IDYES)
 	{
 		free(fullError);
