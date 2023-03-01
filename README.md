@@ -14,4 +14,4 @@ and Megaminx
 If you want to compile this yourself, download SFML 2.5.1 from here:
 https://www.sfml-dev.org/download.php
 
-Make sure you put the include, lib, and bin folders in your **solution directory** if you download SFML since that's how the project is configured
+Make sure you compile the pch.h if you want to use the precompiled header
