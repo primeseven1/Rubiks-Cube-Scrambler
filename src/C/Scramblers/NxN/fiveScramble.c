@@ -5,7 +5,7 @@
 static const char moves[] = { 'U', 'R', 'F', 'D', 'L', 'B' };
 static const char modifiers[] = { '\'', '2', ' ' };
 
-// 4x4 scrambles will have a slightly different valid function
+// 4x4 scrambles have a slightly different valid function than the others, also doesn't need an "indexToCheck" parameter like the other functions
 static int fourScrambleValid(const char** scramble, const unsigned int i)
 {
 	// This function also knows what indexes to check as well since it's a 4x4 scramble
