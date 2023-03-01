@@ -38,6 +38,7 @@ void Window::eventHandler()
 
 		this->clear(sf::Color(53, 54, 58));
 		this->draw(_m_scrambleText);
+		this->draw(_m_instructions);
 		this->display();
 	}
 }

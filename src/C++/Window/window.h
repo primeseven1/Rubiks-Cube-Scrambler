@@ -1,6 +1,7 @@
 #pragma once
 
-#include "../ScrambleText/scrambleText.h"
+#include "../Text/scrambleText.h"
+#include "../Text/instructions.h"
 
 #define WIDTH 850
 #define HEIGHT 600
@@ -14,5 +15,6 @@ private:
 	void eventHandler();
 
 	ScrambleText _m_scrambleText;
+	Instructions _m_instructions;
 	std::unordered_map<sf::Keyboard::Key, std::function<void()>> _m_keyBindings;
 };
