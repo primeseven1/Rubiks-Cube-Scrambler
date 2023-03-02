@@ -2,7 +2,6 @@
 #include <string.h>
 #include "clockScramble.h"
 #include "../scrambler.h"
-#include <stdio.h>
 
 static const char pins[][2] = { { 'U', 'R' }, { 'D', 'R' }, { 'D', 'L' }, { 'U', 'L' } };
 static const char doublePinOrder[] = { 'U', 'R', 'D', 'L' };

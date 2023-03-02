@@ -6,6 +6,7 @@
 #include "./Side_Events/pyraminxScramble.h"
 #include "./Side_Events/megaminxScramble.h"
 #include "./Side_Events/clockScramble.h"
+#include "./Fun_Events/gearCubeScramble.h"
 #include "./Allocator/allocator.h"
 #include "./Scramble_Info/scrambleInfo.h"
 #include "scrambler.h"
@@ -39,7 +40,8 @@ static struct PuzzleInfo puzzleInfo[] = {
 	{.puzzle = SKEWB, .modifiers = SKEWB_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genSkewbScramble },
 	{.puzzle = PYRAMINX, .modifiers = PYRAMINX_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genPyraminxScramble },
 	{.puzzle = MEGAMINX, .modifiers = MEGAMINX_MODIFIERS, .scrambleLength = MEGAMINX_LENGTH, .scrambleFunctionPtr = genMegaminxScramble },
-	{.puzzle = CLOCK, .modifiers = CLOCK_MODIFIERS, .scrambleLength = CLOCK_LENGTH, .scrambleFunctionPtr = genClockScramble }
+	{.puzzle = CLOCK, .modifiers = CLOCK_MODIFIERS, .scrambleLength = CLOCK_LENGTH, .scrambleFunctionPtr = genClockScramble },
+	{.puzzle = GEAR_CUBE, .modifiers = GEAR_CUBE_MODIFIERS, .scrambleLength = 0, .scrambleFunctionPtr = genGearCubeScramble }
 };
 
 char** genScramble(const Puzzle puzzle)
@@ -48,7 +50,11 @@ char** genScramble(const Puzzle puzzle)
 
 	// This is just looping through the array of structs to find a match with what puzzle it is
 	unsigned int i = 0;
-	while (puzzle != puzzleInfo[i].puzzle) i++;
+	while (puzzle != puzzleInfo[i].puzzle) 
+	{
+		if (i > sizeof(puzzleInfo) / sizeof(struct PuzzleInfo)) return NULL;
+		i++;
+	}
 
 	genScrambleLengths(&puzzleInfo[i]);
 

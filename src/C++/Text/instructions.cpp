@@ -4,7 +4,7 @@
 #include "font.h"
 
 Instructions::Instructions()
-	: _m_font(loadFont(".\\Fonts\\arial.ttf")), _m_instructions("\t\t\t\tNumber keys 2-7: 2x2 - 7x7\nP: Pyraminx | S: Skewb | C: Clock | M: Megaminx")
+	: _m_font(loadFont(".\\Fonts\\arial.ttf")), _m_instructions("\t\t\t\t\t\tNumber keys 2-7: 2x2 - 7x7\nP: Pyraminx | S: Skewb | C: Clock | M: Megaminx | G: Gear Cube")
 {
 	this->setFont(_m_font);
 	this->setFillColor(sf::Color::White);

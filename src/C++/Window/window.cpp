@@ -8,8 +8,8 @@ Window::Window(const unsigned int width, const unsigned int height, const char* 
 		{ sf::Keyboard::Num5, [this]() { _m_scrambleText.setPuzzle(FIVE_BY_FIVE); } }, { sf::Keyboard::Num6, [this]() { _m_scrambleText.setPuzzle(SIX_BY_SIX); } },
 		{ sf::Keyboard::Num7, [this]() { _m_scrambleText.setPuzzle(SEVEN_BY_SEVEN); } }, { sf::Keyboard::S, [this]() { _m_scrambleText.setPuzzle(SKEWB); } },
 		{ sf::Keyboard::P, [this]() { _m_scrambleText.setPuzzle(PYRAMINX); } }, { sf::Keyboard::M, [this]() { _m_scrambleText.setPuzzle(MEGAMINX); } },
-		{ sf::Keyboard::C, [this]() { _m_scrambleText.setPuzzle(CLOCK); } }
-		}
+		{ sf::Keyboard::C, [this]() { _m_scrambleText.setPuzzle(CLOCK); } }, { sf::Keyboard::G, [this]() { _m_scrambleText.setPuzzle(GEAR_CUBE); } }
+	}
 {
 	this->create(sf::VideoMode(width, height), title, style);
 	this->setFramerateLimit(30); // Reduces CPU usage by a lot

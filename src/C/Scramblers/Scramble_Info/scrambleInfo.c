@@ -10,6 +10,7 @@ static unsigned int scrambleLengths[][3] = {
 	{ SEVEN_BY_SEVEN, SEVEN_BY_SEVEN_MIN, SEVEN_BY_SEVEN_MAX },
 	{ SKEWB, SKEWB_MIN, SKEWB_MAX },
 	{ PYRAMINX, PYRAMINX_MIN, PYRAMINX_MAX },
+	{ GEAR_CUBE, GEAR_CUBE_MIN, GEAR_CUBE_MAX },
 };
 
 void genScrambleLengths(struct PuzzleInfo* info)
@@ -22,6 +23,11 @@ void genScrambleLengths(struct PuzzleInfo* info)
 	/* This essentially just loops through the scrambleLengths array until it finds the correct one to use, 
 	   and generates a new scramble length for it */
 	int i = 0;
-	while (info->puzzle != scrambleLengths[i][0]) i++;
+	while (info->puzzle != scrambleLengths[i][0]) 
+	{
+		if (i > sizeof(scrambleLengths) / sizeof(unsigned int) / 3) return;
+		i++;
+	}
+	
 	info->scrambleLength = rand() % (scrambleLengths[i][2] - scrambleLengths[i][1]) + scrambleLengths[i][1];
 }
