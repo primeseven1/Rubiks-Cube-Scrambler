@@ -25,6 +25,8 @@ void genScrambleLengths(struct PuzzleInfo* info)
 	int i = 0;
 	while (info->puzzle != scrambleLengths[i][0]) 
 	{
+		/* If it loops through the entire array, it returns, therefor preventing an infinite loop, or a segfault, 
+		   or undefined behavior */
 		if (i > sizeof(scrambleLengths) / sizeof(unsigned int) / 3) return;
 		i++;
 	}
