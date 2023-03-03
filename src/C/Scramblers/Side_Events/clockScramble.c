@@ -9,7 +9,13 @@ static const char numOfTurns[] = { '0', '1', '2', '3', '4', '5', '6' };
 static const char clockwiseOrCounter[] = { '+', '-' };
 
 // This just simply makes sure that if there is a 6-, it will just switch it to a + since that's how they are normally generated
-static void clockValid(const char numOfTurns, char* clockwiseOrCounter) { if (numOfTurns == '6' && *clockwiseOrCounter == '-') *clockwiseOrCounter = '+'; }
+static void clockValid(const char numOfTurns, char* clockwiseOrCounter) 
+{ 
+	// Making sure this is not a NULL pointer
+	if (!clockwiseOrCounter) return;
+
+	if (numOfTurns == '6' && *clockwiseOrCounter == '-') *clockwiseOrCounter = '+'; 
+}
 
 // Normally this is ALL, but I just shortened it to A
 static void genAllMove(char** scramble, const int i)

@@ -3,6 +3,9 @@
 // indexToCheck is the index where you check the main move, like U, R, F, etc
 int valid(const char** scramble, const unsigned int i, const unsigned int indexToCheck)
 {
+	// if the scramble is a NULL pointer, it won't do anything, but if it returns 0, there will be an infinite loop
+	if (!scramble) return 1;
+
 	if (i && scramble[i - 1][indexToCheck] == scramble[i][indexToCheck]) return 0;
 
 	// This is checking if the move 2 moves ago is the same as before, and then checks to see if the move before is opposite

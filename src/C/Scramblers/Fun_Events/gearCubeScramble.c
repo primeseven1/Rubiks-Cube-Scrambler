@@ -7,6 +7,9 @@ static const char modifiers2[] = { '\'', ' ' };
 
 static int gearCubeScrambleValid(char** scramble, const unsigned int i)
 {
+    // if the scramble is a NULL pointer, it won't do anything, but if it returns 0, there will be an infinite loop
+	if (!scramble) return 1;
+
     // Checking if the first move is the same as the last
     if (i && scramble[i][0] == scramble[i - 1][0]) return 0;
 

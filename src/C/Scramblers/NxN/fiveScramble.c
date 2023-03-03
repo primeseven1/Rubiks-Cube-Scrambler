@@ -8,6 +8,9 @@ static const char modifiers[] = { '\'', '2', ' ' };
 // 4x4 scrambles have a slightly different valid function than the others, also doesn't need an "indexToCheck" parameter like the other functions
 static int fourScrambleValid(const char** scramble, const unsigned int i)
 {
+	// if the scramble is a NULL pointer, it won't do anything, but if it returns 0, there will be an infinite loop
+	if (!scramble) return 1;
+
 	// This function also knows what indexes to check as well since it's a 4x4 scramble
 	if (i && scramble[i - 1][0] == scramble[i][0]) return 0;
 
