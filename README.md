@@ -11,7 +11,7 @@ Skewb,
 Pyraminx,
 and Megaminx
 
-If you want to compile this yourself, download SFML 2.5.1 from here:
+If you want to download SFML, download it here:
 https://www.sfml-dev.org/download.php
 
 Make sure you compile the pch.h if you want to use the precompiled header
